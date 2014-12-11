@@ -38,21 +38,31 @@ class IAuthor(form.Schema, IImageScaleTraversable):
                       default=u"Select a city where school is?"),
         vocabulary=whichCity,
         required=False,
-        )
+    )
 
     schoolName = schema.TextLine(
         title=_(u'label_schoolname', default=u"input your school name."),
         description=_(u'help_schoolname',
                       default=u"Please input your school name."),
         required=False,
-        )
+    )
+
+    grade = schema.Int(
+        title=_(u'label_grade', default=u"input author's grade."),
+        description=_(u'help_grade',
+                      default=u"Please input author's grade(1-9)."),
+        min=1,
+        max=9,
+        required=False,
+    )
 
     className = schema.TextLine(
-        title=_(u'label_className', default=u"input your class name."),
+        title=_(u'label_className', default=u"input author's class name."),
         description=_(u'help_className',
-                      default=u"Please input your class name."),
+                      default=u"Please input author's class name."),
+        max_length=3,
         required=False,
-        )
+    )
 
 
 

@@ -35,6 +35,15 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+
+    <plone:behavior
+        title="Basic metadata for Author"
+        description="Basic metadata, include title and description"
+        provides=".basic.IBasic"
+        factory=".basic.Basic"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
   <adapter
       for="Products.CMFCore.interfaces.IFolderish
            Products.CMFDefault.interfaces.ICMFDefaultSkin
