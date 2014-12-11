@@ -1,0 +1,225 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-12-11 02:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./profiles/default/types/reporter.content.article.xml
+msgid "Article"
+msgstr "作文"
+
+#: ./profiles/default/types/reporter.content.article.xml
+msgid "Article content type"
+msgstr "作文發表"
+
+#: ./profiles/default/types/reporter.content.author.xml
+msgid "Author"
+msgstr "作者"
+
+#: ./profiles/default/types/reporter.content.competition.xml
+msgid "Competition"
+msgstr "競賽活動"
+
+#: ./profiles/default/types/reporter.content.competition.xml
+msgid "Competition content type"
+msgstr "競賽活動"
+
+#: ./competition.py:56
+msgid "Competition date"
+msgstr "競賽日期"
+
+#: ./profiles/default/types/reporter.content.customnews.xml
+msgid "Custom news content type, inherit from News"
+msgstr "新聞發佈(套用原新聞)"
+
+#: ./profiles/default/types/reporter.content.customnews.xml
+msgid "CustomNews"
+msgstr "新聞發佈"
+
+#: ./profiles/default/types/reporter.content.author.xml
+msgid "Define Author(student)"
+msgstr "設定小作家/小記者"
+
+#: ./eventinfo.py:56
+msgid "Event date"
+msgstr "活動日期"
+
+#: ./profiles/default/types/reporter.content.eventinfo.xml
+msgid "Event information content type"
+msgstr "活動訊息"
+
+#: ./profiles/default/types/reporter.content.eventinfo.xml
+msgid "EventInfo"
+msgstr "張貼活動"
+
+#: ./author.py:26
+msgid "Keelung"
+msgstr "基隆市"
+
+#: ./article.py:33
+#: ./competition.py:28
+#: ./customnews.py:30
+msgid "Lead image"
+msgstr "封面圖片"
+
+#: ./author.py:25
+msgid "New Taipei"
+msgstr "新北市"
+
+#: ./article.py:40
+#: ./customnews.py:37
+msgid "News content"
+msgstr "新聞發佈"
+
+#: ./customnews.py:42
+msgid "News image 1"
+msgstr "新聞圖片1"
+
+#: ./customnews.py:47
+msgid "News image 2"
+msgstr "新聞圖片2"
+
+#: ./competition.py:35
+#: ./eventinfo.py:35
+msgid "Notice URL"
+msgstr "活動網址"
+
+#: ./competition.py:63
+#: ./eventinfo.py:63
+msgid "Notice content"
+msgstr "公告內容"
+
+#: ./competition.py:49
+#: ./eventinfo.py:49
+msgid "Sign up end date"
+msgstr "截止報名日"
+
+#: ./competition.py:42
+#: ./eventinfo.py:42
+msgid "Sign up start date"
+msgstr "開始報名日"
+
+#: ./author.py:24
+msgid "Taipei"
+msgstr "台北市"
+
+#. Default: "Select a city where school is?"
+#: ./author.py:37
+msgid "help_city"
+msgstr "請選擇 小作家/小記者 所在縣市"
+
+#. Default: "Please input author's class name."
+#: ./author.py:59
+msgid "help_className"
+msgstr "請輸入班級(如3年2班，輸入 '2' 即可， 4年忠班，輸入 '忠' 即可"
+
+#. Default: "CompetitionDate date, if have."
+#: ./competition.py:57
+msgid "help_competitionDate"
+msgstr "若為現場競賽(如圍期比賽)，請輸入競賽日期(或競賽首日)；若為收件式競賽(如作文投稿)，本欄不填。"
+
+#. Default: "Please upload competition image, if have."
+#: ./competition.py:29
+msgid "help_competition_image"
+msgstr "若有競賽宣傳圖檔，請上傳"
+
+#. Default: "Used in item listings and search results."
+#: ./basic.py:28
+msgid "help_description"
+msgstr "請輸入200字以內的 小作家/小記者 個人簡介"
+
+#. Default: "Event happen date, if have."
+#: ./eventinfo.py:57
+msgid "help_eventinfo_Date"
+msgstr "若為現場活動(如親子路跑)，請輸入活動日期(或活動首日)；若無明確活動日期(如桐花季)，本欄不填。"
+
+#. Default: "Please upload event image, if have."
+#: ./eventinfo.py:29
+msgid "help_eventinfo_image"
+msgstr "若有活動宣傳圖檔，請上傳"
+
+#. Default: "Please input author's grade."
+#: ./author.py:52
+msgid "help_grade"
+msgstr "請輸入年級，國小:1-6，國中：7-9"
+
+#. Default: "Please upload lead image, this image will show in cover."
+#: ./article.py:34
+#: ./customnews.py:31
+msgid "help_image"
+msgstr "若文章搭配有圖片，請上傳圖片"
+
+#. Default: "We will comfirm this notice, then publish it, and we will have to modify the text."
+#: ./competition.py:64
+#: ./eventinfo.py:64
+msgid "help_notice_text"
+msgstr "為避免重覆張貼，我們會在確認本活動後於本站發佈本活動訊息"
+
+#. Default: "Please upload notice url."
+#: ./competition.py:36
+#: ./eventinfo.py:36
+msgid "help_notice_url"
+msgstr "請輸入公告網址(需包含 'http://' 或 'https://')"
+
+#. Default: "Please input your school name."
+#: ./author.py:45
+msgid "help_schoolname"
+msgstr "請輸入校名"
+
+#. Default: "Sign up end date, if have."
+#: ./competition.py:50
+#: ./eventinfo.py:50
+msgid "help_signUPEnd"
+msgstr "如有報名期限，請輸入報名截止日期"
+
+#. Default: "Sign up from date, if have."
+#: ./competition.py:43
+#: ./eventinfo.py:43
+msgid "help_signUPFrom"
+msgstr "如有報名期限，請輸入報名開始日期(如為即日起開放報名，則免填)"
+
+#. Default: "Please input author's name or nickname."
+#: ./basic.py:19
+msgid "help_title"
+msgstr "請輸入 小作家/小記者 姓名(當然也可以是 筆名/藝名/暱稱/綽號…)"
+
+#. Default: "City"
+#: ./author.py:36
+msgid "label_city"
+msgstr "所在縣市"
+
+#. Default: "input author's class name."
+#: ./author.py:58
+msgid "label_className"
+msgstr "班級"
+
+#. Default: "Summary"
+#: ./basic.py:27
+msgid "label_description"
+msgstr "簡介"
+
+#. Default: "input author's grade."
+#: ./author.py:51
+msgid "label_grade"
+msgstr "年級"
+
+#. Default: "input your school name."
+#: ./author.py:44
+msgid "label_schoolname"
+msgstr "校名"
+
+#. Default: "Title"
+#: ./basic.py:18
+msgid "label_title"
+msgstr "姓名"
+
