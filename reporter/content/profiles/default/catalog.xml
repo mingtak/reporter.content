@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+
+    <index name="authorUID" meta_type="FieldIndex">
+        <indexed_attr value="authorUID"/>
+    </index>
+    <column value="authorUID"/>
+
+    <index name="signUpFrom" meta_type="DateIndex">
+        <indexed_attr value="signUpFrom"/>
+    </index>
+    <column value="signUpFrom"/>
+
+    <index name="signUpEnd" meta_type="DateIndex">
+        <indexed_attr value="signUpEnd"/>
+    </index>
+    <column value="signUpEnd"/>
+
+    <index name="happenDate" meta_type="DateIndex">
+        <indexed_attr value="happenDate"/>
+    </index>
+    <column value="happenDate"/>
+
+    <index name="imageContribute" meta_type="BooleanIndex">
+        <indexed_attr value="imageContribute"/>
+    </index>
+    <column value="imageContribute"/>
+
+    <index name="eventCategory" meta_type="FieldIndex">
+        <indexed_attr value="eventCategory"/>
+    </index>
+    <column value="eventCategory"/>
+
+    <index name="grade" meta_type="FieldIndex">
+        <indexed_attr value="grade"/>
+    </index>
+    <column value="grade"/>
+
+</object>

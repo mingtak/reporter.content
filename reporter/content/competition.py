@@ -16,7 +16,16 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
+# for add/edit form
+from plone.dexterity.browser.add import DefaultAddForm, DefaultAddView
+from plone.dexterity.browser.edit import DefaultEditForm, DefaultEditView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+# index and metadata
+from plone.indexer import indexer
+from collective import dexteritytextindexer
+
+# i18n
 from reporter.content import MessageFactory as _
 
 
@@ -38,6 +47,14 @@ class ICompetition(form.Schema, IImageScaleTraversable):
         required=True,
     )
 
+    dexteritytextindexer.searchable('place')
+    place = schema.TextLine(
+        title=_(u"Competition place"),
+        description=_(u"help_competition_place",
+                      default=u"Please input rough place, example:'Taipei city'."),
+        required=False,
+    )
+
     signUpFrom = schema.Date(
         title=_(u"Sign up start date"),
         description=_(u"help_signUPFrom",
@@ -52,19 +69,37 @@ class ICompetition(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
-    competitionDate = schema.Date(
+    happenDate = schema.Date(
         title=_(u"Competition date"),
         description=_(u"help_competitionDate",
                       default=u"CompetitionDate date, if have."),
         required=False,
     )
 
+    dexteritytextindexer.searchable('text')
     text = RichText(
         title=_(u"Notice content"),
         description=_(u"help_notice_text",
                       default=u"We will comfirm this notice, then publish it, and we will have to modify the text."),
         required=False,
     )
+
+
+class AddForm(DefaultAddForm):
+    template = ViewPageTemplateFile('template/addForm.pt')
+
+
+class AddView(DefaultAddView):
+    form = AddForm
+
+
+class EditForm(DefaultEditForm):
+    template = ViewPageTemplateFile('template/editForm.pt')
+
+
+class EditView(DefaultEditView):
+    form = EditForm
+
 
 class Competition(Container):
     grok.implements(ICompetition)
@@ -76,3 +111,20 @@ class SampleView(grok.View):
     grok.context(ICompetition)
     grok.require('zope2.View')
 #    grok.name('view')
+
+
+# create index and metadata
+@indexer(ICompetition)
+def signUpFrom_indexer(obj):
+    return obj.signUpFrom
+grok.global_adapter(signUpFrom_indexer, name='signUpFrom')
+
+@indexer(ICompetition)
+def signUpEnd_indexer(obj):
+    return obj.signUpEnd
+grok.global_adapter(signUpEnd_indexer, name='signUpEnd')
+
+@indexer(ICompetition)
+def happenDate_indexer(obj):
+    return obj.happenDate
+grok.global_adapter(happenDate_indexer, name='happenDate')

@@ -1,0 +1,478 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="reporter.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+
+<div id="homepageLayout">
+
+<!--start-->
+
+<!--start section-->
+
+<tal:slide define="slideSetup view/slideSetup">
+<section class="nicdark_section">
+	<div class="tp-banner-container">
+		<div class="nicdark_slide1">
+			<ul>
+				<!--start first-->
+  <tal:repeat repeat="slide python:slideSetup.split('\n')">
+    <tal:getItem define="catalog python:context.portal_catalog;
+                         item python:catalog({'portal_type':slide.split(',')[0], 'id':slide.split(',')[1].strip()})[0].getObject()">
+      <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on"
+          tal:attributes="data-title item/Title">
+        <tal:getSrc define="srcString item/@@images/image/preview;
+                            src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
+          <img tal:attributes="src src;
+                               data-lazyload src;
+                               alt item/Title"
+               data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+        </tal:getSrc>
+      </li>
+    </tal:getItem>
+  </tal:repeat>
+				<!--end first-->
+			</ul>
+		</div>
+	</div>
+</section>
+</tal:slide>
+
+<!--end section--><!--start section-->
+<tal:slide define="color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange', 'nicdark_bg_green',
+                                 'nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange', 'nicdark_bg_green'];
+                   slideSetup view/slideSetup">
+<section class="nicdark_section nicdark_margintop45_negative">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+		<div class="grid grid_12 percentage nomargin">    
+			<div class="nicdark_textevidence center">
+    <tal:repeat repeat="slide python:slideSetup.split('\n')">
+      <tal:getItem define="catalog python:context.portal_catalog;
+                           item python:catalog({'portal_type':slide.split(',')[0], 'id':slide.split(',')[1].strip()})[0].getObject()">
+
+
+
+                            <div tal:define="left_or_right python:'nicdark_radius_left' if repeat['slide'].start else
+                                       'nicdark_radius_right' if repeat['slide'].end else ''"
+                                     tal:attributes="class python:'nicdark_textevidence nicdark_width_percentage25 nicdark_shadow %s %s' %
+                                                     (color[repeat['slide'].index], left_or_right)">
+			        <div class="nicdark_textevidence">
+			            <div class="nicdark_margin30">
+			                <h5 class="white subtitle">
+                                          <a class="white" tal:attributes="href item/absolute_url"
+                                             tal:content="item/Title">COURSES</a>
+                                        </h5>
+			            </div>
+                                    <tal:checkType define="type python:'icon-comment-2' if 'article' in slide.split(',')[0] else 'icon-pencil-2'">
+                                      <i tal:attributes="class python:'nicdark_zoom nicdark_iconbg left extrabig nicdark_displaynone_ipadland nicdark_displaynone_ipadpotr %s %s' %
+                                                                       (type, color[repeat['slide'].index].split('_')[-1])" ></i>
+                                    </tal:checkType>
+			        </div>
+			    </div>
+      </tal:getItem>
+    </tal:repeat>
+			    <div class="nicdark_space5"></div>
+			</div>
+		</div>
+	</div>
+    <!--end nicdark_container-->
+</section>
+</tal:slide>
+
+
+<!--end section--><!--start section-->
+
+<tal:eventSetup define="eventSetup view/eventSetup;
+                        events python:eventSetup.split('\n')">
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark" i18n:translate="">NEWEST EVENTS</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey" i18n:translate="">Newest events all in here</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left big"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+<tal:category define="category python:{'Arts and Humanities':['nicdark_bg_yellow', 'icon-music-1'],
+                                        'Natural science':['nicdark_bg_blue', 'icon-globe'],
+                                        'Local':['nicdark_bg_orange', 'icon-leaf-1'],
+                                        'Celebration':['nicdark_bg_green', 'icon-users-1'],
+                                        'Experience tour':['nicdark_bg_violet', 'icon-wrench'],
+                                        'Other categories':['nicdark_bg_red', 'icon-popup'],}">
+<tal:repeat repeat="event events">
+<tal:getBrain define="catalog view/catalog;
+                      brain python:catalog({'portal_type':'reporter.content.eventinfo', 'id':event.strip()})[0]">
+        <div class="grid grid_4 nicdark_relative">
+            <div tal:attributes="class python:'nicdark_btn_iconbg %s nicdark_absolute extrabig nicdark_shadow nicdark_radius' %
+                                               category[brain.eventCategory][0]">
+                <div>
+                    <i tal:attributes="class python:'%s nicdark_iconbg left big white' % category[brain.eventCategory][1]"></i>
+                </div>
+            </div>
+            <div class="nicdark_activity nicdark_marginleft100">
+                <h4 tal:content="brain/Title">CUSTOM FOOD</h4>                        
+                <div class="nicdark_space20"></div>
+                <p tal:content="brain/Description"></p>
+                <div class="nicdark_space20"></div>
+                <a tal:attributes="href brain/getURL" class="nicdark_btn grey"><i class="icon-right-open-outline"></i> 活動詳情</a>
+                <div class="nicdark_space20"></div>
+            </div>
+        </div>
+</tal:getBrain>
+</tal:repeat>
+</tal:category>
+        <div class="nicdark_space50"></div>
+    </div>
+    <!--end nicdark_container-->
+</section>
+</tal:eventSetup>
+
+
+<!--end section--><!--start section-->
+<div id="nicdark_parallax_2_btns" class="nicdark_section nicdark_imgparallax"
+     style="background:url(/logo.png) 50% 0 fixed; background-size:cover;">
+    <div class="nicdark_filter greydark">
+        <!--start nicdark_container-->
+        <div class="nicdark_container nicdark_clearfix">
+            <div class="nicdark_space40"></div>
+            <div class="nicdark_space50"></div>
+            <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+                <a href="/event/++add++reporter.content.eventinfo" class="nicdark_disable_floatright_iphoneland nicdark_disable_floatright_iphonepotr nicdark_btn nicdark_bg_blue medium right nicdark_shadow nicdark_radius white nicdark_press"><i class="icon-th-outline"></i>&nbsp;&nbsp;&nbsp;張 貼 活 動</a>
+            </div>
+            <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+                <a href="/competition/++add++reporter.content.competition" class=" nicdark_btn nicdark_bg_blue medium nicdark_shadow nicdark_radius white nicdark_press"><i class="icon-pencil-1"></i>&nbsp;&nbsp;&nbsp;宣 傳 競 賽</a>
+            </div>
+            <div class="nicdark_space40"></div>
+            <div class="nicdark_space50"></div>
+        </div>
+        <!--end nicdark_container-->
+    </div>
+</div>
+<!--end section--><!--start section-->
+
+
+<tal:competitionSetup define="competitionSetup view/competitionSetup;
+                              competitions python:competitionSetup.split('\n');
+                              nicdark_bg_color python:['nicdark_bg_blue','nicdark_bg_yellow','nicdark_bg_violet','nicdark_bg_red']">
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark" i18n:translate="">NEWEST COMPETITIONS</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey" i18n:translate="">Newest cometitions in here.</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left big"><span class="nicdark_bg_green nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+<tal:repeat repeat="competition competitions">
+  <tal:getBrain define="catalog view/catalog;
+                        brain python:catalog({'portal_type':'reporter.content.competition', 'id':competition.strip()})[0];
+                        item brain/getObject">
+        <div class="grid grid_3">
+            <!--archive1-->
+            <div tal:attributes="class python:'nicdark_archive1 %s nicdark_radius nicdark_shadow' % nicdark_bg_color[repeat['competition'].index]">
+                <a tal:attributes="href brain/getURL" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
+                  <tal:date content="python:'%s/%s' % (brain.happenDate.month, brain.happenDate.day)" /><br/>
+                  <small tal:content="python:brain.happenDate.year">YEAR</small>
+                </a>
+                <img tal:replace="structure item/@@images/image/preview">
+                <div class="nicdark_textevidence nicdark_bg_greydark">
+                    <h4 class="white nicdark_margin20" tal:content="brain/Title">A DAY IN THE PARK</h4>
+                </div>
+                <div class="nicdark_margin20">
+                    <h5 class="white"><i class="icon-pin-outline"></i>地點:<tal:place replace="item/place" /></h5>
+                    <div class="nicdark_space10"></div>
+                    <h5 class="white"><i class="icon-clock-1"></i>報名:
+                      <span tal:replace="python:'%s/%s - %s/%s' %
+                                         (brain.signUpFrom.month, brain.signUpFrom.day, brain.signUpEnd.month, brain.signUpEnd.day)" />
+                    </h5>
+                    <div class="nicdark_space20"></div>
+                    <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                    <div class="nicdark_space20"></div>
+                    <p class="white" tal:content="brain/Description" />
+                    <div class="nicdark_space20"></div>
+                    <a tal:attributes="href brain/getURL"
+                       class=" nicdark_press nicdark_btn nicdark_bg_greendark white nicdark_radius nicdark_shadow medium">點閱詳情</a>
+                </div>
+            </div>
+            <!--archive1-->
+        </div>
+  </tal:getbrain>
+</tal:repeat>
+        <div class="nicdark_space50"></div>
+   </div>
+   <!--end nicdark_container-->
+</section>
+</tal:competitionSetup>
+
+
+<!--end section--><!--start section-->
+<section id="nicdark_parallax_countdown" class="nicdark_section nicdark_imgparallax"
+         style="background:url(http://upload.wikimedia.org/wikipedia/commons/7/70/Bratislava_New_Year_Fireworks.jpg) 50% 0 fixed; background-size:cover;">
+    <div class="nicdark_filter greydark">
+        <!--start nicdark_container-->
+        <div class="nicdark_container nicdark_clearfix">
+            <div class="nicdark_space40"></div>
+            <div class="nicdark_space50"></div>
+            <div class="grid grid_12">
+                <h1 class="white center subtitle">倒數計時器</h1>
+                <div class="nicdark_space10"></div>
+                <h3 class="subtitle center white">現在距離2015年還有...</h3>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider center big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space20"></div>
+            </div>
+            <div class="nicdark_countdown"></div>
+            <div class="nicdark_space40"></div>
+            <div class="nicdark_space50"></div>
+        </div>
+        <!--end nicdark_container-->
+    </div>
+</section>
+<!--end section--><!--start section-->
+
+<tal:customNewsSetupSetup define="customNewsSetup view/customNewsSetup;
+                              customNews_s python:customNewsSetup.split('\n');
+                              nicdark_bg_color python:['nicdark_bg_blue','nicdark_bg_yellow','nicdark_bg_violet','nicdark_bg_red',
+                                                       'nicdark_bg_blue','nicdark_bg_yellow','nicdark_bg_violet','nicdark_bg_red']">
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark" i18n:translate="">NEWS</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey" i18n:translate="">Good news</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left big"><span class="nicdark_bg_orange nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+<tal:repeat repeat="customNews customNews_s">
+  <tal:getItem define="catalog view/catalog;
+                       brain python:catalog({'portal_type':'reporter.content.customnews', 'id':customNews.strip()})[0];
+                       item brain/getObject">
+        <div class="grid grid_6">
+            <div tal:attributes="class python:'nicdark_archive1 nicdark_radius nicdark_shadow %s' % nicdark_bg_color[repeat['customNews'].index]">
+                <div class="nicdark_textevidence nicdark_width_percentage40 nicdark_width100_responsive">
+                  <tal:getSrc define="srcString item/@@images/image/mini;
+                                      src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
+                    <img tal:attributes="alt brain/Title;
+                                         class string:nicdark_radius_left nicdark_opacity;
+                                         src src">
+                  </tal:getSrc>
+                </div>
+                <div class="nicdark_textevidence nicdark_width_percentage60 nicdark_width100_responsive">
+                    <div class="nicdark_margin20">
+                        <h4 class="white"><a class="white" tal:attributes="href brain/getURL" tal:content="brain/Title">JULIETTE LIGHT</a></h4>
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                        <div class="nicdark_space20"></div>
+                        <p class="white" tal:content="brain/Description">um dolor sit amet.</p>
+                        <div class="nicdark_space20"></div>
+                        <a tal:attributes="href brain/getURL" class="white nicdark_btn"><i class="icon-graduation-cap-1"></i>
+                          閱讀全文
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </tal:getItem>
+</tal:repeat>
+
+        <div class="nicdark_space50"></div>
+    </div>
+	<!--end nicdark_container-->
+</section>
+</tal:customNewsSetupSetup>
+
+<!--start section-->
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space30"></div>
+        <div class="grid grid_12">
+            <div class="nicdark_textevidence center">
+                <a href="/news" class="nicdark_zoom nicdark_btn nicdark_bg_blue medium nicdark_shadow nicdark_radius white nicdark_margin10"><i class="icon-th-outline"></i>&nbsp;&nbsp;&nbsp;更多新聞</a>
+            </div>
+        </div>
+        <div class="nicdark_space40"></div>
+    </div>
+    <!--end nicdark_container-->
+</section>
+<!--end section--><!--end-->
+
+
+
+
+
+<!--end section--><!--start section-->
+<!--
+<section id="nicdark_parallax_counter" class="nicdark_section nicdark_imgparallax"
+         style="background:url(http://upload.wikimedia.org/wikipedia/commons/2/26/NewYearFireworks-Reykjavik.jpg) 50% 0 fixed; background-size:cover;">
+    <div class="nicdark_filter greydark">
+
+        <div class="nicdark_container nicdark_clearfix">
+            <div class="nicdark_space40"></div>
+            <div class="nicdark_space50"></div>
+            <div class="grid grid_12">
+                <h1 class="white center subtitle">熱門活動</h1>
+                <div class="nicdark_space10"></div>
+                <h3 class="subtitle center white">現在最Hot活動參與人數</h3>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider center big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space20"></div>
+            </div>
+            <div class="grid grid_3">
+                <div class="nicdark_textevidence center">
+                    <a href="#" class="nicdark_width50 white nicdark_btn nicdark_bg_blue nicdark_bg_bluedark_hover nicdark_transition nicdark_shadow extrasize nicdark_radius_circle subtitle nicdark_counter" data-to="52" data-speed="1000">69</a>
+                    <div class="nicdark_space20"></div>
+                    <h4 class="white">TEACHERS</h4>
+                </div>
+            </div>
+            <div class="grid grid_3">
+                <div class="nicdark_textevidence center">
+                    <a href="#" class="nicdark_width50 white nicdark_btn nicdark_bg_green nicdark_bg_greendark_hover nicdark_transition nicdark_shadow extrasize nicdark_radius_circle subtitle nicdark_counter" data-to="32" data-speed="1000">32</a>
+                    <div class="nicdark_space20"></div>
+                    <h4 class="white">COURSES</h4>
+                </div>
+            </div>
+            <div class="grid grid_3">
+                <div class="nicdark_textevidence center">
+                    <a href="#" class="nicdark_width50 white nicdark_btn nicdark_bg_yellow nicdark_bg_yellowdark_hover nicdark_transition nicdark_shadow extrasize nicdark_radius_circle subtitle nicdark_counter" data-to="48" data-speed="1000">48</a>
+                    <div class="nicdark_space20"></div>
+                    <h4 class="white">LESSONS</h4>
+                </div>
+            </div>
+            <div class="grid grid_3">
+                <div class="nicdark_textevidence center">
+                    <a href="#" class="nicdark_width50 white nicdark_btn nicdark_bg_violet nicdark_bg_violetdark_hover nicdark_transition nicdark_shadow extrasize nicdark_radius_circle subtitle nicdark_counter" data-to="72" data-speed="1000">72</a>
+                    <div class="nicdark_space20"></div>
+                    <h4 class="white">ACTIVITIES</h4>
+                </div>
+            </div>
+            <div class="nicdark_space40"></div>
+            <div class="nicdark_space50"></div>
+        </div>
+
+    </div>
+</section>
+-->
+<!--end section--><!--start section-->
+
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+        <div class="grid grid_12">
+            <h1 class="subtitle greydark" i18n:translate="">ARTICLE</h1>
+            <div class="nicdark_space20"></div>
+            <h3 class="subtitle grey" i18n:translate="">Best article</h3>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left big"><span class="nicdark_bg_blue nicdark_radius"></span></div>
+            <div class="nicdark_space10"></div>
+        </div>
+        <div class="nicdark_masonry_btns">
+            <div class="nicdark_margin10">
+                <a data-filter="*" class="nicdark_bg_grey2_hover nicdark_transition nicdark_btn nicdark_bg_grey small nicdark_shadow nicdark_radius grey" i18n:translate="">ALL GRADE ARTICELS</a>
+            </div>
+            <div class="nicdark_margin10">
+                <a data-filter=".one_two" class="nicdark_bg_grey2_hover nicdark_transition nicdark_btn nicdark_bg_grey small nicdark_shadow nicdark_radius grey" i18n:translate="">One/two grade</a>
+            </div>
+            <div class="nicdark_margin10">
+                <a data-filter=".three_four" class="nicdark_bg_grey2_hover nicdark_transition nicdark_btn nicdark_bg_grey small nicdark_shadow nicdark_radius grey" i18n:translate="">Three/four grade</a>
+            </div>
+            <div class="nicdark_margin10">
+                <a data-filter=".five_six" class="nicdark_bg_grey2_hover nicdark_transition nicdark_btn nicdark_bg_grey small nicdark_shadow nicdark_radius grey" i18n:translate="">Five/six grade</a>
+            </div>
+            <div class="nicdark_margin10">
+                <a data-filter=".seven_to_nine" class="nicdark_bg_grey2_hover nicdark_transition nicdark_btn nicdark_bg_grey small nicdark_shadow nicdark_radius grey" i18n:translate="">Seven to nine grade</a>
+            </div>
+            <div class="nicdark_space10"></div>
+        </div>
+        <!--start nicdark_masonry_container-->
+
+        <div class="nicdark_masonry_container">
+<tal:articleSetupSetup define="articleSetup view/articleSetup;
+                               articles python:articleSetup.split('\n');
+                               nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
+                                                        'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red'];
+                               grade python:['one_two', 'one_two', 'one_two', 'three_four', 'three_four', 'five_six',
+                                             'five_six', 'seven_to_nine', 'seven_to_nine', 'seven_to_nine', 'seven_to_nine']">
+<tal:repeat repeat="article articles">
+<tal:getItem define="catalog view/catalog;
+                     brain python:catalog({'portal_type':'reporter.content.article', 'id':article.strip()})[0];
+                     item brain/getObject">
+            <div tal:attributes="class python:'grid grid_4 nicdark_masonry_item %s' % grade[brain.grade]">
+                <div tal:attributes="class python:'nicdark_archive1 nicdark_radius nicdark_shadow %s' % nicdark_bg_color[repeat['article'].index % 6]">
+                    <a tal:attributes="href brain/getURL;
+                                       class python:'nicdark_zoom nicdark_btn_icon %s nicdark_border_%sdark white medium nicdark_radius_circle nicdark_absolute_left' %
+                                                     (nicdark_bg_color[repeat['article'].index % 6], nicdark_bg_color[repeat['article'].index % 6].split('_')[-1])">
+                      <i class="icon-link-outline"></i>
+                    </a>
+                    <img tal:replace="structure item/@@images/image/preview" />
+                    <div class="nicdark_margin20">
+                        <h4 class="white" tal:content="brain/Title">OUR SCHOOL ANNIVERSARY</h4>
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                        <div class="nicdark_space20"></div>
+                        <p class="white" tal:content="brain/Description">Lorem ipsum dolor sit amet, consectetur adcing elit Lorem ipsum dolor sit amet, consectetur adip iscing elit psum dolor sit amet.</p>
+                        <div class="nicdark_space20"></div>
+                        <a tal:attributes="href brain/getURL" class="white nicdark_btn"><i class="icon-doc-text-1 "></i> 全文賞析</a>                        
+                    </div>
+                    <i tal:attributes="class python:'icon-pencil-2 nicdark_iconbg right medium %s' % nicdark_bg_color[repeat['article'].index % 6].split('_')[-1]"></i>
+                </div>
+            </div>
+</tal:getItem>
+</tal:repeat>
+</tal:articleSetupSetup>
+        </div>
+        <!--end nicdark_masonry_container-->
+    </div>
+    <!--end nicdark_container-->
+</section>
+<!--end section-->
+
+
+<!--start section-->
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space30"></div>
+        <div class="grid grid_12">
+            <div class="nicdark_textevidence center">
+                <a href="/articlt" class="nicdark_zoom nicdark_btn nicdark_bg_blue medium nicdark_shadow nicdark_radius white nicdark_margin10"><i class="icon-th-outline"></i>&nbsp;&nbsp;&nbsp;點看更多</a>
+            </div>
+        </div>
+        <div class="nicdark_space40"></div>
+    </div>
+    <!--end nicdark_container-->
+</section>
+<!--end section--><!--end-->
+
+</div><!-- #homepageLayout End -->
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

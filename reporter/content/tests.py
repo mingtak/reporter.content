@@ -52,6 +52,22 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for ContentList
+        ztc.ZopeDocFileSuite(
+            'ContentList.txt',
+            package='reporter.content',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
+        # Integration tests for HomePage
+        ztc.ZopeDocFileSuite(
+            'HomePage.txt',
+            package='reporter.content',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         # Integration tests for Author
         ztc.ZopeDocFileSuite(
             'Author.txt',

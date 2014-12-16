@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+
+    <permission name="Reporter: Add EventInfo" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+    <permission name="Reporter: Add Competition" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+    <permission name="Reporter: Add CustomNews" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+    <permission name="Reporter: Add Article" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+    <permission name="Reporter: Add Author" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+    <permission name="Reporter: Add ContentList" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+    <permission name="Reporter: Add HomePage" acquire="True">
+      <role name="Manager" />
+    </permission>
+
+  </permissions>
+</rolemap>

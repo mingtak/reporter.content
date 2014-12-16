@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-12-11 02:21+0000\n"
+"POT-Creation-Date: 2014-12-15 02:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,12 +21,30 @@ msgstr ""
 msgid "Article"
 msgstr ""
 
+#: ./article.py:65
+msgid "Article content"
+msgstr ""
+
 #: ./profiles/default/types/reporter.content.article.xml
 msgid "Article content type"
 msgstr ""
 
+#: ./eventinfo.py:30
+msgid "Arts and Humanities"
+msgstr ""
+
+#: ./article.py:51
+#: ./customnews.py:47
 #: ./profiles/default/types/reporter.content.author.xml
 msgid "Author"
+msgstr ""
+
+#: ./author.py:35
+msgid "Author picture"
+msgstr ""
+
+#: ./eventinfo.py:33
+msgid "Celebration"
 msgstr ""
 
 #: ./profiles/default/types/reporter.content.competition.xml
@@ -37,8 +55,16 @@ msgstr ""
 msgid "Competition content type"
 msgstr ""
 
-#: ./competition.py:56
+#: ./competition.py:60
 msgid "Competition date"
+msgstr ""
+
+#: ./profiles/default/types/reporter.content.contentlist.xml
+msgid "Content lists' content type"
+msgstr ""
+
+#: ./profiles/default/types/reporter.content.contentlist.xml
+msgid "ContentList"
 msgstr ""
 
 #: ./profiles/default/types/reporter.content.customnews.xml
@@ -53,7 +79,11 @@ msgstr ""
 msgid "Define Author(student)"
 msgstr ""
 
-#: ./eventinfo.py:56
+#: ./eventinfo.py:55
+msgid "Event category"
+msgstr ""
+
+#: ./eventinfo.py:82
 msgid "Event date"
 msgstr ""
 
@@ -65,50 +95,73 @@ msgstr ""
 msgid "EventInfo"
 msgstr ""
 
+#: ./eventinfo.py:34
+msgid "Experience tour"
+msgstr ""
+
+#: ./profiles/default/types/reporter.content.homepage.xml
+msgid "Home page content type"
+msgstr ""
+
+#: ./profiles/default/types/reporter.content.homepage.xml
+msgid "HomePage"
+msgstr ""
+
 #: ./author.py:26
 msgid "Keelung"
 msgstr ""
 
-#: ./article.py:33
-#: ./competition.py:28
-#: ./customnews.py:30
+#: ./article.py:57
+#: ./competition.py:32
+#: ./customnews.py:53
 msgid "Lead image"
+msgstr ""
+
+#: ./eventinfo.py:32
+msgid "Local"
+msgstr ""
+
+#: ./eventinfo.py:31
+msgid "Natural science"
 msgstr ""
 
 #: ./author.py:25
 msgid "New Taipei"
 msgstr ""
 
-#: ./article.py:40
-#: ./customnews.py:37
+#: ./customnews.py:60
 msgid "News content"
 msgstr ""
 
-#: ./customnews.py:42
+#: ./customnews.py:65
 msgid "News image 1"
 msgstr ""
 
-#: ./customnews.py:47
+#: ./customnews.py:70
 msgid "News image 2"
 msgstr ""
 
-#: ./competition.py:35
-#: ./eventinfo.py:35
+#: ./competition.py:39
+#: ./eventinfo.py:61
 msgid "Notice URL"
 msgstr ""
 
-#: ./competition.py:63
-#: ./eventinfo.py:63
+#: ./competition.py:68
+#: ./eventinfo.py:90
 msgid "Notice content"
 msgstr ""
 
-#: ./competition.py:49
-#: ./eventinfo.py:49
+#: ./eventinfo.py:35
+msgid "Other categories"
+msgstr ""
+
+#: ./competition.py:53
+#: ./eventinfo.py:75
 msgid "Sign up end date"
 msgstr ""
 
-#: ./competition.py:42
-#: ./eventinfo.py:42
+#: ./competition.py:46
+#: ./eventinfo.py:68
 msgid "Sign up start date"
 msgstr ""
 
@@ -117,77 +170,77 @@ msgid "Taipei"
 msgstr ""
 
 #. Default: "Select a city where school is?"
-#: ./author.py:37
+#: ./author.py:41
 msgid "help_city"
 msgstr ""
 
 #. Default: "Please input author's class name."
-#: ./author.py:59
+#: ./author.py:65
 msgid "help_className"
 msgstr ""
 
 #. Default: "CompetitionDate date, if have."
-#: ./competition.py:57
+#: ./competition.py:61
 msgid "help_competitionDate"
 msgstr ""
 
 #. Default: "Please upload competition image, if have."
-#: ./competition.py:29
+#: ./competition.py:33
 msgid "help_competition_image"
 msgstr ""
 
-#. Default: "Used in item listings and search results."
+#. Default: "Used in item listings and search results, max length is 200."
 #: ./basic.py:28
 msgid "help_description"
 msgstr ""
 
 #. Default: "Event happen date, if have."
-#: ./eventinfo.py:57
+#: ./eventinfo.py:83
 msgid "help_eventinfo_Date"
 msgstr ""
 
 #. Default: "Please upload event image, if have."
-#: ./eventinfo.py:29
+#: ./eventinfo.py:49
 msgid "help_eventinfo_image"
 msgstr ""
 
-#. Default: "Please input author's grade."
-#: ./author.py:52
+#. Default: "Please input author's grade(1-9)."
+#: ./author.py:56
 msgid "help_grade"
 msgstr ""
 
 #. Default: "Please upload lead image, this image will show in cover."
-#: ./article.py:34
-#: ./customnews.py:31
+#: ./article.py:58
+#: ./customnews.py:54
 msgid "help_image"
 msgstr ""
 
 #. Default: "We will comfirm this notice, then publish it, and we will have to modify the text."
-#: ./competition.py:64
-#: ./eventinfo.py:64
+#: ./competition.py:69
+#: ./eventinfo.py:91
 msgid "help_notice_text"
 msgstr ""
 
 #. Default: "Please upload notice url."
-#: ./competition.py:36
-#: ./eventinfo.py:36
+#: ./competition.py:40
+#: ./eventinfo.py:62
 msgid "help_notice_url"
 msgstr ""
 
 #. Default: "Please input your school name."
-#: ./author.py:45
+#: ./author.py:49
 msgid "help_schoolname"
 msgstr ""
 
 #. Default: "Sign up end date, if have."
-#: ./competition.py:50
-#: ./eventinfo.py:50
+#: ./competition.py:54
+#: ./eventinfo.py:76
 msgid "help_signUPEnd"
 msgstr ""
 
 #. Default: "Sign up from date, if have."
-#: ./competition.py:43
-#: ./eventinfo.py:43
+#: ./competition.py:47
+#: ./eventinfo.py:69
 msgid "help_signUPFrom"
 msgstr ""
 
@@ -197,12 +250,12 @@ msgid "help_title"
 msgstr ""
 
 #. Default: "City"
-#: ./author.py:36
+#: ./author.py:40
 msgid "label_city"
 msgstr ""
 
 #. Default: "input author's class name."
-#: ./author.py:58
+#: ./author.py:64
 msgid "label_className"
 msgstr ""
 
@@ -212,12 +265,12 @@ msgid "label_description"
 msgstr ""
 
 #. Default: "input author's grade."
-#: ./author.py:51
+#: ./author.py:55
 msgid "label_grade"
 msgstr ""
 
 #. Default: "input your school name."
-#: ./author.py:44
+#: ./author.py:48
 msgid "label_schoolname"
 msgstr ""
 

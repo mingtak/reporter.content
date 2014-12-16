@@ -12,6 +12,7 @@
               <h3 tal:condition="view/label | nothing" tal:content="view/label" />
             </metal:title-slot>
 -->
+<div class="template-add-form" style="display:none"></div>
             <metal:define define-macro="titlelessform">
 
                 <tal:status define="status view/status" condition="status">

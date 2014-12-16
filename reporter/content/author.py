@@ -16,7 +16,12 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
+# for add/edit form
+from plone.dexterity.browser.add import DefaultAddForm, DefaultAddView
+from plone.dexterity.browser.edit import DefaultEditForm, DefaultEditView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+# i18n
 from reporter.content import MessageFactory as _
 
 
@@ -31,6 +36,10 @@ class IAuthor(form.Schema, IImageScaleTraversable):
     """
     Define Author(student)
     """
+    image = NamedBlobImage(
+        title=_(u"Author picture"),
+        required=False,
+    )
 
     city = schema.Choice(
         title=_(u'label_city', default=u'City'),
@@ -47,6 +56,7 @@ class IAuthor(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    """
     grade = schema.Int(
         title=_(u'label_grade', default=u"input author's grade."),
         description=_(u'help_grade',
@@ -63,7 +73,23 @@ class IAuthor(form.Schema, IImageScaleTraversable):
         max_length=3,
         required=False,
     )
+    """
 
+
+class AddForm(DefaultAddForm):
+    template = ViewPageTemplateFile('template/addForm.pt')
+
+
+class AddView(DefaultAddView):
+    form = AddForm
+
+
+class EditForm(DefaultEditForm):
+    template = ViewPageTemplateFile('template/editForm.pt')
+
+
+class EditView(DefaultEditView):
+    form = EditForm
 
 
 class Author(Container):

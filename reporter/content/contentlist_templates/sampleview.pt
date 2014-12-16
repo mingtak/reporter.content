@@ -17,11 +17,11 @@
 
     <h2>
         Rendered from
-        eventinfo_templates/<span tal:replace="template/id" />
+        contentlist_templates/<span tal:replace="template/id" />
     </h2>
 
 
-    <div tal:content="context/category">Title inserted here</div>
+    <div tal:content="context/Title">Title inserted here</div>
 
   </metal:content-core>
 </metal:main>

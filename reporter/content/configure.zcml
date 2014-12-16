@@ -35,15 +35,21 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+  <include file="permissions.zcml" />
+  <include package=".browser" />
+  <include package=".viewlet" />
+  <include package=".configlet" />
+  <plone:behavior
+      title="Basic metadata for Author"
+      description="Basic metadata, include title and description"
+      provides=".basic.IBasic"
+      factory=".basic.Basic"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      />
 
-    <plone:behavior
-        title="Basic metadata for Author"
-        description="Basic metadata, include title and description"
-        provides=".basic.IBasic"
-        factory=".basic.Basic"
-        for="plone.dexterity.interfaces.IDexterityContent"
-        />
+<!-- add/edit form START -->
 
+  <!-- article -->
   <adapter
       for="Products.CMFCore.interfaces.IFolderish
            Products.CMFDefault.interfaces.ICMFDefaultSkin
@@ -59,5 +65,111 @@
       class=".article.EditForm"
       />
 
+  <!-- customnews -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".customnews.AddView"
+      name="reporter.content.customnews"
+      />
+  <browser:page
+      for="reporter.content.customnews.ICustomNews"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".customnews.EditForm"
+      />
+
+  <!-- eventinfo -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".eventinfo.AddView"
+      name="reporter.content.eventinfo"
+      />
+  <browser:page
+      for="reporter.content.eventinfo.IEventInfo"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".eventinfo.EditForm"
+      />
+
+  <!-- competition -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".competition.AddView"
+      name="reporter.content.competition"
+      />
+  <browser:page
+      for="reporter.content.competition.ICompetition"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".competition.EditForm"
+      />
+
+  <!-- author -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".author.AddView"
+      name="reporter.content.author"
+      />
+  <browser:page
+      for="reporter.content.author.IAuthor"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".author.EditForm"
+      />
+
+  <!-- homepage -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".homepage.AddView"
+      name="reporter.content.homepage"
+      />
+  <browser:page
+      for="reporter.content.homepage.IHomePage"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".homepage.EditForm"
+      />
+
+  <!-- contentlist -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".contentlist.AddView"
+      name="reporter.content.contentlist"
+      />
+  <browser:page
+      for="reporter.content.contentlist.IContentList"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".contentlist.EditForm"
+      />
+
+<!-- add/edit form END -->
+
+  <subscriber
+      for=".eventinfo.IEventInfo zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+      handler=".eventhandler.objectCreatedEvent"
+      />
+  <subscriber
+      for=".competition.ICompetition zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+      handler=".eventhandler.objectCreatedEvent"
+      />
 
 </configure>

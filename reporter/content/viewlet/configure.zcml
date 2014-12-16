@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="reporter.content">
+
+
+<!--
+<browser:viewlet
+    name="plone.site_actions"
+    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+    class=".viewlets.TestViewlet"
+    layer="reporter.content.eventinfo.IEventInfo"
+    permission="zope2.View"
+    />
+-->
+</configure>

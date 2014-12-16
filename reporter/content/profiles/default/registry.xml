@@ -1,0 +1,3 @@
+<registry>
+  <records interface="reporter.content.configlet.homepagelayoutsetting.IHomepageLayoutSetting" />
+</registry>

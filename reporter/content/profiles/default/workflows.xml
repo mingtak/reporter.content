@@ -3,16 +3,13 @@
  <property
     name="title">Contains workflow definitions for your portal</property>
  <bindings>
-  <type type_id="reporter.content.eventinfo">
-    <bound-workflow workflow_id="one_state_workflow"/>
-  </type>
   <type type_id="reporter.content.article">
     <bound-workflow workflow_id="one_state_workflow"/>
   </type>
-  <type type_id="reporter.content.competition">
+  <type type_id="reporter.content.customnews">
     <bound-workflow workflow_id="one_state_workflow"/>
   </type>
-  <type type_id="reporter.content.customnews">
+  <type type_id="reporter.content.author">
     <bound-workflow workflow_id="one_state_workflow"/>
   </type>
  </bindings>
