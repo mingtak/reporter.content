@@ -21,6 +21,9 @@ from plone.dexterity.browser.add import DefaultAddForm, DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm, DefaultEditView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+# catalog
+from plone.indexer import indexer
+
 # i18n
 from reporter.content import MessageFactory as _
 
@@ -102,3 +105,14 @@ class SampleView(grok.View):
     grok.context(IAuthor)
     grok.require('zope2.View')
     # grok.name('view')
+
+
+@indexer(IAuthor)
+def city_indexer(obj):
+    return obj.city
+grok.global_adapter(city_indexer, name='city')
+
+@indexer(IAuthor)
+def schoolName_indexer(obj):
+    return obj.schoolName
+grok.global_adapter(schoolName_indexer, name='schoolName')

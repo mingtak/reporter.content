@@ -36,4 +36,14 @@
     </index>
     <column value="grade"/>
 
+    <index name="city" meta_type="FieldIndex">
+        <indexed_attr value="city"/>
+    </index>
+    <column value="city"/>
+
+    <index name="schoolName" meta_type="FieldIndex">
+        <indexed_attr value="schoolName"/>
+    </index>
+    <column value="schoolName"/>
+
 </object>

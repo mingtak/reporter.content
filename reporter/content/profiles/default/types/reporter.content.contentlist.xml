@@ -9,7 +9,7 @@
     i18n:translate="">Content lists' content type</property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
   <property name="factory">reporter.content.contentlist</property>
-  <property name="global_allow">False</property>
+  <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types" />
   <property name="allow_discussion">False</property>
@@ -25,10 +25,14 @@
 
   <!-- View information -->
   <property name="link_target"></property>
-  <property name="immediate_view">view</property>
-  <property name="default_view">view</property>
+  <property name="immediate_view">view for none</property>
+  <property name="default_view">view for none</property>
   <property name="view_methods">
-   <element value="view"/>
+   <element value="view for customnews"/>
+   <element value="view for competition"/>
+   <element value="view for eventinfo"/>
+   <element value="view for article"/>
+   <element value="view for none"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">reporter.content.AddContentList</property>

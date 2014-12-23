@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="reporter.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+
+<tal:customnews define="catalog python:context.portal_catalog;
+                          start python:int(getattr(request, 's', '0'));
+                          totalBrains python:catalog({'Type':'CustomNews'});
+                          totalCount python:len(totalBrains);
+                          brains python:totalBrains[start:start+20];
+                          nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
+                                                   'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red', 'nicdark_bg_blue']">
+
+<section class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+
+        <!--start nicdark_masonry_container-->
+
+        <div class="nicdark_masonry_container">
+<tal:repeat repeat="brain python:brains">
+<tal:getItem define="item brain/getObject">
+            <div class="grid grid_4 nicdark_masonry_item">
+                <div tal:attributes="class python:'nicdark_archive1 nicdark_radius nicdark_shadow %s' % nicdark_bg_color[repeat['brain'].index % 6]">
+                    <a tal:attributes="href brain/getURL;
+                                       class python:'nicdark_zoom nicdark_btn_icon %s nicdark_border_%sdark white medium nicdark_radius_circle nicdark_absolute_left' %
+                                                     (nicdark_bg_color[repeat['brain'].index % 6], nicdark_bg_color[repeat['brain'].index % 6].split('_')[-1])">
+                      <i class="icon-link-outline"></i>
+                    </a>
+                <a tal:attributes="href brain/getURL" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
+                  <tal:date content="python:'%s/%s' % (brain.created.month(), brain.created.day())" /><br/>
+                  <small tal:content="python:brain.created.year()">YEAR</small>
+                </a>
+
+                    <img tal:replace="structure item/@@images/image/preview" />
+                    <div class="nicdark_margin20">
+                        <h4 class="white" tal:content="brain/Title">OUR SCHOOL ANNIVERSARY</h4>
+
+<div class="nicdark_space10"></div>
+                    <div class="nicdark_space10"></div>
+
+                        <div class="nicdark_space10"></div>
+                        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                        <div class="nicdark_space20"></div>
+                        <p class="white" tal:content="brain/Description">Lorem ipsum dolor sit amet, consectetur adcing elit Lorem ipsum dolor sit amet, consectetur adip iscing elit psum dolor sit amet.</p>
+                        <div class="nicdark_space20"></div>
+                        <a tal:attributes="class python:'nicdark_press nicdark_btn %sdark white nicdark_radius nicdark_shadow medium' %
+                                                        nicdark_bg_color[repeat['brain'].index % 6 + 1];
+                                           href brain/getURL">全文</a>
+
+                    </div>
+                    <i tal:attributes="class python:'icon-pencil-2 nicdark_iconbg right medium %s' % nicdark_bg_color[repeat['brain'].index % 6].split('_')[-1]"></i>
+                </div>
+            </div>
+</tal:getItem>
+</tal:repeat>
+        </div>
+        <!--end nicdark_masonry_container-->
+    </div>
+    <!--end nicdark_container-->
+</section>
+<!--end section-->
+
+
+<!--start section-->
+
+<div class="nicdark_section">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space40"></div>
+        <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+            <a tal:attributes="href python:'/news?s=%s' % (0 if start-20 < 0 else start-20)"
+               tal:condition="python:start > 0"
+               class="nicdark_disable_floatright_iphoneland nicdark_disable_floatright_iphonepotr nicdark_btn nicdark_bg_green medium right nicdark_shadow nicdark_radius white nicdark_press"><i class="icon-left-open-outline"></i>&nbsp;&nbsp;&nbsp;上一頁</a>
+        </div>
+        <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
+            <a tal:attributes="href python:'/news?s=%s' % (start+20)"
+               tal:condition="python:start < totalCount"
+               class=" nicdark_btn nicdark_bg_green medium nicdark_shadow nicdark_radius white nicdark_press">下一頁&nbsp;&nbsp;&nbsp;<i class="icon-right-open-outline"></i></a>
+        </div>
+        <div class="nicdark_space50"></div>
+    </div>
+    <!--end nicdark_container-->
+</div>
+<!--end section--><!--end-->
+
+</tal:customnews>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

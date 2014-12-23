@@ -31,6 +31,12 @@ class IContentList(form.Schema, IImageScaleTraversable):
     """
     Content lists' content type
     """
+    image = NamedBlobImage(
+        title=_(u"Lead image"),
+        description=_(u"help_image",
+                      default=u"Please upload lead image, this image will show in cover."),
+        required=True,
+    )
 
 
 class AddForm(DefaultAddForm):
@@ -53,12 +59,41 @@ class ContentList(Container):
     grok.implements(IContentList)
 
 
-class SampleView(grok.View):
-    """ sample view class """
+class ViewForEventInfo(grok.View):
 
     grok.context(IContentList)
     grok.require('zope2.View')
+    grok.name('view for eventinfo')
+    # Add view methods here
 
-    # grok.name('view')
 
+class ViewForCustomNews(grok.View):
+
+    grok.context(IContentList)
+    grok.require('zope2.View')
+    grok.name('view for customnews')
+    # Add view methods here
+
+
+class ViewForArticle(grok.View):
+
+    grok.context(IContentList)
+    grok.require('zope2.View')
+    grok.name('view for article')
+    # Add view methods here
+
+
+class ViewForCompetition(grok.View):
+
+    grok.context(IContentList)
+    grok.require('zope2.View')
+    grok.name('view for competition')
+    # Add view methods here
+
+
+class ViewForNone(grok.View):
+
+    grok.context(IContentList)
+    grok.require('zope2.View')
+    grok.name('view for none')
     # Add view methods here

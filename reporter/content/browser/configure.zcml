@@ -4,12 +4,29 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="reporter.content">
 
-
   <browser:page
     for="*"
     name="thanksforpost"
     permission="zope2.View"
     class=".staticpage.ThanksForPost" />
+
+  <browser:page
+    for="*"
+    name="privacy"
+    permission="zope2.View"
+    class=".staticpage.Privacy" />
+
+  <browser:page
+    for="*"
+    name="searchContent"
+    permission="zope2.View"
+    class=".searchcontent.SearchContent" />
+
+  <browser:page
+    for="*"
+    name="contactus"
+    permission="zope2.View"
+    class=".contactus.ContactUs" />
 
 <!--
 測試用，平常不開

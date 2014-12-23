@@ -52,7 +52,14 @@ class IEventInfo(form.Schema, IImageScaleTraversable):
     image = NamedBlobImage(
         title=_(u"Lead image"),
         description=_(u"help_eventinfo_image",
-                      default=u"Please upload event image, if have."),
+                      default=u"Please upload event cover image, if have."),
+        required=False,
+    )
+
+    bannerImage = NamedBlobImage(
+        title=_(u"Banner image"),
+        description=_(u"help_eventinfo_bannerImage",
+                      default=u"Please upload event promotion image, if have."),
         required=False,
     )
 
@@ -124,7 +131,7 @@ class SampleView(grok.View):
 
     grok.context(IEventInfo)
     grok.require('zope2.View')
-    # grok.name('view')
+    grok.name('view')
 
 
 # create index and metadata

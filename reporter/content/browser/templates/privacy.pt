@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twgov.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+<!--start section-->
+
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+<div class="nicdark_space50"></div>
+<div class="nicdark_space50"></div>
+<div class="nicdark_space50"></div>
+
+
+    <div class="grid grid_8">
+<h3><tal:title replace="context/title">title</tal:title> 的隱私權政策</h3>
+<div class="nicdark_space30"></div>
+<p><tal:title replace="context/title">title</tal:title> 了解你的個人資料是非常重要的。以下我們列出這個網站有收集哪些個人資料，以及我們如何運用這些資料。我們絕不會以任何方式(包括販賣/租用/贈與或其他任何名目)將你的資料轉匯出給第三者。</p>
+<div class="nicdark_space20"></div>
+<h4>網站瀏覽紀錄</h4>
+<div class="nicdark_space10"></div>
+<p>我們會收集網站瀏覽紀錄內的資料。這類資料包括你的互聯網協定位址 (IP Address)，你使用的瀏覽器，你造訪網站的時間，以及你閱覽過的網頁。<tal:title replace="context/title">title</tal:title> 會分析這些資訊以了解使用者的使用狀況，以作為本站未來改善使用者經驗之用。</p>
+<div class="nicdark_space20"></div>
+<h4>Cookies 和 Web Beacons</h4>
+<div class="nicdark_space10"></div>
+<p><tal:title replace="context/title">title</tal:title> 本身有使用 cookies 來儲存資料。另外，我們在網站上有放廣告。有些廣告商 (例如 Google 的 Google Adsense) 會用 cookies 或 web beacons (電子影像) 的來獲取一些你的資訊，例如你的互聯網協定位址 (IP Address)，你使用的瀏覽器，你造訪網站的時間，以及你閱覽過的網頁等等。這類技術大部分是用來提供你適當的區域廣告 (例如高雄房地產廣告給高雄的使用者)，或是依照你的喜好來提供相關的廣告 (若你常看旅遊網站，你就可能常看到跟旅遊有關的廣告)。</p>
+<div class="nicdark_space20"></div>
+<p>你可以從你的瀏覽器設定中選擇拒絕或是只允許某些網站的 cookies。你也可以由你的防毒軟體中做出這些設定。不接受 cookie 並不會影響你瀏覽本站的經驗。不過，這可能會影響到你會看到哪些廣告。</p>
+
+    </div>
+<div class="nicdark_space50"></div>
+</div></section>
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

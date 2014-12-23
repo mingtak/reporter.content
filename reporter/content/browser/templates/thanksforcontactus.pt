@@ -15,17 +15,37 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
+
+
+
+
+
 <section class="nicdark_section">
     <div class="nicdark_container nicdark_clearfix">
         <div class="nicdark_space50"></div>
         <div class="nicdark_space50"></div>
         <div class="nicdark_space50"></div>
         <div class="nicdark_space50"></div>
-        <div class="grid grid_12">
+        <div class="grid grid_12" tal:condition="view/validateEmail">
 
-
-<div tal:content="structure request" />
+            <div class="nicdark_textevidence nicdark_bg_blue nicdark_radius nicdark_shadow">
+                <div class="nicdark_size_big">
+                    <p class="white"><i class="icon-chat nicdark_marginright10"></i>您的留言已送出，感謝您的訊息！</p>
+                </div>
+                <i class="icon-info-outline nicdark_iconbg right medium blue"></i>
+            </div>
         </div>
+
+
+        <div class="grid grid_12" tal:condition="not:view/validateEmail">
+            <div class="nicdark_textevidence nicdark_bg_red nicdark_radius nicdark_shadow">
+                <div class="nicdark_size_big">
+                    <p class="white"><i class="icon-chat nicdark_marginright10"></i>很抱歉，您的email格式錯誤！</p>
+                </div>
+                <i class="icon-info-outline nicdark_iconbg right medium red"></i>
+            </div>
+        </div>
+
     </div>
 </section>
   </metal:content-core>

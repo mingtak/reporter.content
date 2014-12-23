@@ -11,4 +11,18 @@
     class=".homepagelayoutsetting.HomepageLayoutSettingControlPanelView"
     />
 
+<browser:page
+    name="pageEnvSetting"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    permission="cmf.ManagePortal"
+    class=".pageenvsetting.PageEnvSettingControlPanelView"
+    />
+
+<browser:page
+    name="headerandfootersetting"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    permission="cmf.ManagePortal"
+    class=".headerandfootersetting.HeaderAndFooterSettingControlPanelView"
+    />
+
 </configure>

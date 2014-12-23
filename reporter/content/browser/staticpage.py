@@ -10,3 +10,10 @@ class ThanksForPost(BrowserView):
         request = self.request
         catalog = self.context.portal_catalog
         return self.template()
+
+class Privacy(BrowserView):
+
+    template=ViewPageTemplateFile("templates/privacy.pt")
+
+    def __call__(self):
+        return self.template()

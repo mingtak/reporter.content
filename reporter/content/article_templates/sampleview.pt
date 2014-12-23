@@ -15,13 +15,78 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <h2 tal:content="context/title">
-        Rendered from
-        article_templates/<span tal:replace="template/id" />
-    </h2>
 
+<!--start section-->
+<!--<section class="nicdark_section">-->
+    <!--start nicdark_container-->
+<!--    <div class="nicdark_container nicdark_clearfix"> -->
+        <div class="nicdark_space50"></div>
+        <div class="grid grid_8">
+        <tal:getSrc define="srcString context/@@images/image/banner;
+                            src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
+            <img tal:attributes="alt context/Title;
+                                 src src"
+                 class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+        </tal:getSrc>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_textevidence nicdark_bg_orange nicdark_radius nicdark_shadow">
+                <div class="nicdark_size_big">
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_sharing_toolbox" style="float:right"></div>
+                    <p class="white"><i class="icon-calendar-1 nicdark_marginright10"></i>
+                      <span tal:replace="python:context.created().strftime('%Y/%m/%d')">21 DECEMBER</span> <span class="nicdark_margin010">·</span> <i class="icon-user-1 nicdark_marginright10"></i>
+                      <span tal:replace="python:view.getAuthor().Title">ADMIN</span> <span class="nicdark_margin010">·</span> <i class="icon-chat nicdark_marginright10"></i>
+                      <span tal:replace="python:view.getAuthor().schoolName">school name</span>
+                    </p>
+                </div>
+                <i class="icon-info-outline nicdark_iconbg right medium orange"></i>
+            </div>
+            <div class="nicdark_space50"></div>
+            <h1 class="subtitle greydark" tal:content="context/Title">POST TITLE</h1>
+            <div class="nicdark_space20"></div>
+            <div class="nicdark_divider left small"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
+            <div class="nicdark_space20"></div>
+            <div>
+              <p><span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow" tal:content="python:context.title[0]">L</span></p>
+              <p tal:replace="structure context/text/raw" />
+            </div>
+            <div class="nicdark_space50"></div>
+            <!--author-->
+            <div class="nicdark_archive1 nicdark_bg_yellow nicdark_radius nicdark_shadow">
+                <div class="nicdark_margin20 nicdark_relative">
+<tal:getSrc define="author python:view.getAuthor().getObject();
+                    srcString author/@@images/image/mini;
+                    src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
+                    <img tal:attributes="alt author/Title;
+                                         src src"
+                     class="nicdark_displaynone_ipadpotr nicdark_radius_circle nicdark_absolute" style="width:100px;">
+</tal:getSrc>
+                    <div class="nicdark_activity nicdark_marginleft120 nicdark_disable_marginleft_ipadpotr">
+                        <h4 class="white" tal:content="python:view.getAuthor().Title">JOHN MCALISTER</h4>
+                        <div class="nicdark_space20"></div>
+                            <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                        <div class="nicdark_space20"></div>
+                        <p class="white" tal:content="python:view.getAuthor().Description">Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales.</p>
+                    </div>
+                </div>
+            </div>
+            <!--author-->
 
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'reporterbabywithme'; // required: replace example with your forum shortname
 
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</div>
   </metal:content-core>
 </metal:main>
 

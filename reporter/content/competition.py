@@ -40,6 +40,13 @@ class ICompetition(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    bannerImage = NamedBlobImage(
+        title=_(u"Banner image"),
+        description=_(u"help_competition_bannerImage",
+                      default=u"Please upload competition promotion image, if have."),
+        required=False,
+    )
+
     noticeUrl = schema.URI(
         title=_(u"Notice URL"),
         description=_(u"help_notice_url",
@@ -110,7 +117,7 @@ class SampleView(grok.View):
 
     grok.context(ICompetition)
     grok.require('zope2.View')
-#    grok.name('view')
+    grok.name('view')
 
 
 # create index and metadata

@@ -1,0 +1,26 @@
+<tal:src define="srcString context/@@images/image/banner;
+                 src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
+<section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax"
+         tal:attributes="style string:background: url(${src}) 50% 0 fixed;; background-size:cover;;">
+    <div class="nicdark_filter greydark">
+        <!--start nicdark_container-->
+        <div class="nicdark_container nicdark_clearfix">
+            <div class="grid grid_12">
+                <div class="nicdark_space100"></div>
+                <div class="nicdark_space100"></div>
+                <h1 class="white subtitle" tal:condition="python:context.Type()=='ContentList'"
+                                           tal:content="python:context.getParentNode().title">Title</h1>
+                <h1 class="white subtitle" tal:condition="python:context.Type()!='ContentList'"
+                                           tal:content="context/title">Title</h1>
+                <div class="nicdark_space10"></div>
+                <h3 class="subtitle white" tal:content="context/Description">Description</h3>
+                <div class="nicdark_space20"></div>
+                <div class="nicdark_divider left big"><span class="nicdark_bg_white nicdark_radius"></span></div>
+                <div class="nicdark_space40"></div>
+                <div class="nicdark_space50"></div>
+            </div>
+        </div>
+        <!--end nicdark_container-->
+    </div>
+</section>
+</tal:src>

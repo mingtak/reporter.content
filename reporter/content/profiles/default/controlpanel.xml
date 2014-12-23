@@ -17,4 +17,30 @@
             <permission>Manage portal</permission>
     </configlet>
 
+    <configlet
+        title="Page Env setting"
+        action_id="reporter.content.configlet.pageenvsetting"
+        appId="reporter.content.configlet.pageenvsetting"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@pageEnvSetting"
+        icon_expr="string:/favicon.ico"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+    <configlet
+        title="Header and footer setting"
+        action_id="reporter.content.configlet.headerandfootersetting"
+        appId="reporter.content.configlet.headerandfootersetting"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@headerandfootersetting"
+        icon_expr="string:/favicon.ico"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
 </object>

@@ -17,8 +17,6 @@
 
 
 
-<div id="homepageLayout">
-
 <!--start-->
 
 <!--start section-->
@@ -281,9 +279,16 @@
                   </tal:getSrc>
                 </div>
                 <div class="nicdark_textevidence nicdark_width_percentage60 nicdark_width100_responsive">
-                    <div class="nicdark_margin20">
+                    <div class="nicdark_margin10">
                         <h4 class="white"><a class="white" tal:attributes="href brain/getURL" tal:content="brain/Title">JULIETTE LIGHT</a></h4>
-                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_space10"></div>
+                    <h5 class="white"><i class="icon-clock-1"></i>
+                      <span tal:replace="python:'%s/%s/%s' %
+                                         (brain.created.year(), brain.created.month(), brain.created.day())" />
+                      ,小記者 <span tal:content="python:catalog(UID=brain.authorUID)[0].Title" /> 報導
+                    </h5>
+
+                        <div class="nicdark_space15"></div>
                         <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
                         <div class="nicdark_space20"></div>
                         <p class="white" tal:content="brain/Description">um dolor sit amet.</p>
@@ -467,8 +472,6 @@
     <!--end nicdark_container-->
 </section>
 <!--end section--><!--end-->
-
-</div><!-- #homepageLayout End -->
 
   </metal:content-core>
 </metal:main>

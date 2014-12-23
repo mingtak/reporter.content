@@ -1,3 +1,5 @@
 <registry>
   <records interface="reporter.content.configlet.homepagelayoutsetting.IHomepageLayoutSetting" />
+  <records interface="reporter.content.configlet.pageenvsetting.IPageEnvSetting" />
+  <records interface="reporter.content.configlet.headerandfootersetting.IHeaderAndFooterSetting" />
 </registry>

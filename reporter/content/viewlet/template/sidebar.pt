@@ -1,0 +1,87 @@
+<div i18n:domain="reporter.content">
+
+<tal:registry define="slideSetup python:context.portal_registry['reporter.content.configlet.homepagelayoutsetting.IHomepageLayoutSetting.slideSetup'];
+                      hotTags python:context.portal_registry['reporter.content.configlet.headerandfootersetting.IHeaderAndFooterSetting.hotTags']">
+
+<!--START SIDEBAR-->
+<div class="nicdark_right_sidebar nicdark_bg_greydark nicdark_nicescrool">
+    <a class="nicdark_right_sidebar_btn_close nicdark_btn_icon small nicdark_bg_red nicdark_radius white nicdark_absolute_right10 nicdark_shadow"><i class="icon-power"></i></a>
+    <!--start CART-->
+    <div class="nicdark_margin020">
+        <div class="nicdark_space20"></div>
+        <h4 class="white">投稿創作</h4>
+        <div class="nicdark_space20"></div>
+        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+    </div>
+    <div class="nicdark_textevidence">
+        <div class="nicdark_margin20">
+            <ul class="nicdark_list nicdark_relative">
+<tal:repeat repeat="slide python:slideSetup.split('\n')">
+<tal:getItem define="catalog python:context.portal_catalog; 
+                     brain python:catalog({'portal_type':slide.split(',')[0], 'id':slide.split(',')[1].strip(),})[0];
+                     item brain/getObject;
+                     srcString item/@@images/image/thumb;
+                     src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
+                <li>
+                    <a tal:attributes="href brain/getURL">
+                      <img tal:attributes="alt brain/Description;
+                                           title brain/Title;
+                                           src src"
+                           class="nicdark_absolute nicdark_radius nicdark_opacity nicdark_width60">
+                    </a>
+                    <div class="nicdark_activity nicdark_marginleft80">
+                      <a tal:attributes="href brain/getURL">
+                        <h5 class="grey subtitle" tal:content="brain/Title">BOOK CHILDREN</h5>
+                      </a>
+                        <div class="nicdark_space10"></div>
+                        <p>
+                           <tal:description replace="brain/Description" />
+                           <a tal:attributes="href brain/getURL" class="white">...全文</a>
+                        </p>
+                    </div>
+                    <div class="nicdark_space30"></div>
+                </li>
+</tal:getItem>
+</tal:repeat>
+            </ul>
+        </div>
+    </div>
+    <!--end CART-->
+
+<br>
+    <!--start SEARCH-->
+    <div class="nicdark_margin020">
+        <h4 class="white">全文搜尋</h4>
+        <div class="nicdark_space20"></div>
+        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+    </div>
+    <div class="nicdark_margin20">
+        <input class="nicdark_bg_greydark2 nicdark_radius nicdark_shadow grey small subtitle" type="text" value="" placeholder="KEYWORD">
+        <div class="nicdark_space20"></div>
+        <a href="#" class="nicdark_btn nicdark_bg_blue small nicdark_shadow nicdark_radius white"><i class="icon-search-outline"></i>&nbsp;&nbsp;SEARCH</a>
+    </div>
+    <!--end SEARCH-->
+
+<br>
+    <!--start TAGS-->
+    <div class="nicdark_margin020">
+        <div class="nicdark_space40"></div>
+        <h4 class="white">本站熱門</h4>
+        <div class="nicdark_space20"></div>
+        <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
+    </div>
+    <div class="nicdark_margin10">
+<tal:repeat repeat="hotTag python:hotTags.split('\n')">
+        <a tal:attributes="href python:hotTag.split(':')[1].strip()"
+           tal:content="python:hotTag.split(':')[0]"
+           class="nicdark_btn nicdark_bg_greydark2 small nicdark_shadow nicdark_radius white subtitle nicdark_margin10">tag</a>
+</tal:repeat>
+    </div>
+    <!--end TAGS-->
+
+
+</div>
+
+<!--END SIDEBAR-->
+</tal:registry>
+</div>
