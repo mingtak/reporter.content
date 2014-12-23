@@ -14,7 +14,20 @@
 
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
-<div tal:content="structure request" />Thank for Contact us!
+
+<section class="nicdark_section">
+    <div class="nicdark_container nicdark_clearfix">
+        <div class="nicdark_space50"></div>
+        <div class="nicdark_space50"></div>
+        <div class="nicdark_space50"></div>
+        <div class="nicdark_space50"></div>
+        <div class="grid grid_12">
+
+
+<div tal:content="structure request" />
+        </div>
+    </div>
+</section>
   </metal:content-core>
 </metal:main>
 
