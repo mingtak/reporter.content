@@ -19,13 +19,16 @@
 
 <tal:articleSetup define="catalog python:context.portal_catalog;
                           start python:int(getattr(request, 's', '0'));
-                          totalBrains python:catalog({'Type':'Article'});
+                          totalBrains python:catalog({'Type':'Article'}, sort_on='created', sort_order='reverse');
                           totalCount python:len(totalBrains);
                           brains python:totalBrains[start:start+20];
                           nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
                                                    'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red'];
-                          grade python:['one_two', 'one_two', 'one_two', 'three_four', 'three_four', 'five_six',
-                                        'five_six', 'seven_to_nine', 'seven_to_nine', 'seven_to_nine', 'seven_to_nine']">
+                          grade python:['', 'one_two', 'one_two', 'three_four', 'three_four', 'five_six',
+                                        'five_six', 'seven_to_nine', 'seven_to_nine', 'seven_to_nine', 'seven_to_nine'];
+                          defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
+                          defaultImageString defaultImageObject/@@images/image/preview;
+                          defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
 
 <section class="nicdark_section">
     <!--start nicdark_container-->
@@ -56,14 +59,14 @@
         <div class="nicdark_masonry_container">
 <tal:repeat repeat="brain python:brains">
 <tal:getItem define="item brain/getObject">
-            <div tal:attributes="class python:'grid grid_4 nicdark_masonry_item %s' % grade[brain.grade]">
+            <div tal:attributes="class python:'grid grid_4 nicdark_masonry_item %s' % grade[0 if brain.grade is None else brain.grade]">
                 <div tal:attributes="class python:'nicdark_archive1 nicdark_radius nicdark_shadow %s' % nicdark_bg_color[repeat['brain'].index % 6]">
                     <a tal:attributes="href brain/getURL;
                                        class python:'nicdark_zoom nicdark_btn_icon %s nicdark_border_%sdark white medium nicdark_radius_circle nicdark_absolute_left' %
                                                      (nicdark_bg_color[repeat['brain'].index % 6], nicdark_bg_color[repeat['brain'].index % 6].split('_')[-1])">
                       <i class="icon-link-outline"></i>
                     </a>
-                    <img tal:replace="structure item/@@images/image/preview" />
+                    <img tal:replace="structure item/@@images/image/preview | defaultImageString" />
                     <div class="nicdark_margin20">
                         <h4 class="white" tal:content="brain/Title">OUR SCHOOL ANNIVERSARY</h4>
                         <div class="nicdark_space20"></div>

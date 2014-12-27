@@ -21,6 +21,9 @@ from plone.dexterity.browser.add import DefaultAddForm, DefaultAddView
 from plone.dexterity.browser.edit import DefaultEditForm, DefaultEditView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+# repactcha
+from plone import api
+
 # index and metadata
 from plone.indexer import indexer
 from collective import dexteritytextindexer
@@ -43,6 +46,10 @@ def eventCategory(context):
     for item in category:
         terms.append(SimpleVocabulary.createTerm(item, item, item))
     return SimpleVocabulary(terms)
+
+
+class CaptchaError(Invalid):
+    __doc__ = _(u"Captcha error, plaease try again.")
 
 
 class IEventInfo(form.Schema, IImageScaleTraversable):
@@ -105,9 +112,16 @@ class IEventInfo(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    @invariant
+    def validateCaptcha(data):
+        portal = api.portal.get()
+        if "++add++reporter.content.eventinfo" in str(portal.REQUEST):
+            if not portal.restrictedTraverse('@@captcha').verify():
+                raise CaptchaError(_(u"Captcha error, plaease try again."))
+
 
 class AddForm(DefaultAddForm):
-    template = ViewPageTemplateFile('template/addForm.pt')
+    template = ViewPageTemplateFile('template/addFormWithRecaptcha.pt')
 
 
 class AddView(DefaultAddView):

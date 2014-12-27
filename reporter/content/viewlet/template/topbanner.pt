@@ -1,4 +1,7 @@
-<tal:src define="srcString context/@@images/image/banner;
+<tal:src define="catalog python:context.portal_catalog;
+                 defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
+                 defaultImageString defaultImageObject/@@images/image/preview;
+                 srcString context/@@images/image/banner | defaultImageString;
                  src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
 <section id="nicdark_parallax_title" class="nicdark_section nicdark_imgparallax"
          tal:attributes="style string:background: url(${src}) 50% 0 fixed;; background-size:cover;;">

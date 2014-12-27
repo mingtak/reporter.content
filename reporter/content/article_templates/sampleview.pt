@@ -16,13 +16,15 @@
   <metal:content-core define-macro="content-core">
 
 
-<!--start section-->
-<!--<section class="nicdark_section">-->
+<tal:defaultImage define="catalog python:context.portal_catalog;
+                          defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
+                          defaultImageString defaultImageObject/@@images/image/preview;
+                          defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
+
     <!--start nicdark_container-->
-<!--    <div class="nicdark_container nicdark_clearfix"> -->
         <div class="nicdark_space50"></div>
         <div class="grid grid_8">
-        <tal:getSrc define="srcString context/@@images/image/banner;
+        <tal:getSrc define="srcString context/@@images/image/banner | defaultImageString;
                             src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
             <img tal:attributes="alt context/Title;
                                  src src"
@@ -35,8 +37,8 @@
 <div class="addthis_sharing_toolbox" style="float:right"></div>
                     <p class="white"><i class="icon-calendar-1 nicdark_marginright10"></i>
                       <span tal:replace="python:context.created().strftime('%Y/%m/%d')">21 DECEMBER</span> <span class="nicdark_margin010">·</span> <i class="icon-user-1 nicdark_marginright10"></i>
-                      <span tal:replace="python:view.getAuthor().Title">ADMIN</span> <span class="nicdark_margin010">·</span> <i class="icon-chat nicdark_marginright10"></i>
-                      <span tal:replace="python:view.getAuthor().schoolName">school name</span>
+                      <span tal:replace="python:'作者不具名' if view.getAuthor() is None else view.getAuthor().Title">ADMIN</span> <span class="nicdark_margin010">·</span> <i class="icon-chat nicdark_marginright10"></i>
+                      <span tal:replace="python:'校名不顯示' if view.getAuthor() is None else view.getAuthor().schoolName">school name</span>
                     </p>
                 </div>
                 <i class="icon-info-outline nicdark_iconbg right medium orange"></i>
@@ -54,19 +56,19 @@
             <!--author-->
             <div class="nicdark_archive1 nicdark_bg_yellow nicdark_radius nicdark_shadow">
                 <div class="nicdark_margin20 nicdark_relative">
-<tal:getSrc define="author python:view.getAuthor().getObject();
-                    srcString author/@@images/image/mini;
+<tal:getSrc define="author python:None if view.getAuthor() is None else view.getAuthor().getObject();
+                    srcString author/@@images/image/mini | defaultImageString;
                     src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
-                    <img tal:attributes="alt author/Title;
+                    <img tal:attributes="alt author/Title | string:不具名;
                                          src src"
                      class="nicdark_displaynone_ipadpotr nicdark_radius_circle nicdark_absolute" style="width:100px;">
 </tal:getSrc>
                     <div class="nicdark_activity nicdark_marginleft120 nicdark_disable_marginleft_ipadpotr">
-                        <h4 class="white" tal:content="python:view.getAuthor().Title">JOHN MCALISTER</h4>
+                        <h4 class="white" tal:content="python:'不具名' if view.getAuthor() is None else view.getAuthor().Title">JOHN MCALISTER</h4>
                         <div class="nicdark_space20"></div>
                             <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
                         <div class="nicdark_space20"></div>
-                        <p class="white" tal:content="python:view.getAuthor().Description">Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales.</p>
+                        <p class="white" tal:content="python:'尚未設定' if view.getAuthor() is None else view.getAuthor().Description">Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales.</p>
                     </div>
                 </div>
             </div>
@@ -87,6 +89,8 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
+
+</tal:defaultImage>
   </metal:content-core>
 </metal:main>
 

@@ -19,11 +19,14 @@
 
 <tal:eventinfo define="catalog python:context.portal_catalog;
                        start python:int(getattr(request, 's', '0'));
-                       totalBrains python:catalog({'Type':'EventInfo'});
+                       totalBrains python:catalog({'Type':'EventInfo'}, sort_on='created', sort_order='reverse');
                        totalCount python:len(totalBrains);
                        brains python:totalBrains[start:start+20];
                        nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
-                                                'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red']">
+                                                'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red'];
+                       defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
+                       defaultImageString defaultImageObject/@@images/image/preview;
+                       defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
 
 <section class="nicdark_section">
     <!--start nicdark_container-->
@@ -43,11 +46,11 @@
                       <i class="icon-link-outline"></i>
                     </a>
                 <a tal:attributes="href brain/getURL" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
-                  <tal:date content="python:'%s/%s' % (brain.happenDate.month, brain.happenDate.day)" /><br/>
-                  <small tal:content="python:brain.happenDate.year">YEAR</small>
+                  <tal:date content="python:'%s/%s' % (getattr(brain.happenDate, 'month', ''), getattr(brain.happenDate, 'day', ''))" /><br/>
+                  <small tal:content="python:getattr(brain.happenDate, 'year', '')">YEAR</small>
                 </a>
 
-                    <img tal:replace="structure item/@@images/image/preview" />
+                    <img tal:replace="structure item/@@images/image/preview | defaultImageString"/>
                     <div class="nicdark_margin20">
                         <h4 class="white" tal:content="brain/Title">OUR SCHOOL ANNIVERSARY</h4>
 
@@ -55,7 +58,10 @@
                     <div class="nicdark_space10"></div>
                     <h5 class="white"><i class="icon-clock-1"></i>報名:
                       <span tal:replace="python:'%s/%s - %s/%s' %
-                                         (brain.signUpFrom.month, brain.signUpFrom.day, brain.signUpEnd.month, brain.signUpEnd.day)" />
+                                         (getattr(brain.signUpFrom, 'month', ''),
+                                          getattr(brain.signUpFrom, 'day', ''),
+                                          getattr(brain.signUpEnd, 'month', ''),
+                                          getattr(brain.signUpEnd, 'day', ''),)" />
                     </h5>
 
 
@@ -65,7 +71,7 @@
                         <p class="white" tal:content="brain/Description">Lorem ipsum dolor sit amet, consectetur adcing elit Lorem ipsum dolor sit amet, consectetur adip iscing elit psum dolor sit amet.</p>
                         <div class="nicdark_space20"></div>
                         <a class="nicdark_press nicdark_btn nicdark_bg_greendark white nicdark_radius nicdark_shadow medium"
-                           tal:attributes="href brain/getURL">競賽詳情</a>
+                           tal:attributes="href brain/getURL">活動詳情</a>
 
                     </div>
                     <i tal:attributes="class python:'icon-pencil-2 nicdark_iconbg right medium %s' % nicdark_bg_color[repeat['brain'].index % 6].split('_')[-1]"></i>

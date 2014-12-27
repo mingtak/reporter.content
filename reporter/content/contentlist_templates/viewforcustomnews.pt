@@ -16,14 +16,16 @@
   <metal:content-core define-macro="content-core">
 
 
-
 <tal:customnews define="catalog python:context.portal_catalog;
-                          start python:int(getattr(request, 's', '0'));
-                          totalBrains python:catalog({'Type':'CustomNews'});
-                          totalCount python:len(totalBrains);
-                          brains python:totalBrains[start:start+20];
-                          nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
-                                                   'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red', 'nicdark_bg_blue']">
+                        start python:int(getattr(request, 's', '0'));
+                        totalBrains python:catalog({'Type':'CustomNews'}, sort_on='created', sort_order='reverse');
+                        totalCount python:len(totalBrains);
+                        brains python:totalBrains[start:start+20];
+                        nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
+                                                 'nicdark_bg_green', 'nicdark_bg_violet', 'nicdark_bg_red', 'nicdark_bg_blue'];
+                        defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
+                        defaultImageString defaultImageObject/@@images/image/preview;
+                        defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
 
 <section class="nicdark_section">
     <!--start nicdark_container-->
@@ -47,7 +49,7 @@
                   <small tal:content="python:brain.created.year()">YEAR</small>
                 </a>
 
-                    <img tal:replace="structure item/@@images/image/preview" />
+                    <img tal:replace="structure item/@@images/image/preview | defaultImageString" />
                     <div class="nicdark_margin20">
                         <h4 class="white" tal:content="brain/Title">OUR SCHOOL ANNIVERSARY</h4>
 

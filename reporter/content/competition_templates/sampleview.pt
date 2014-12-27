@@ -15,6 +15,11 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
+<tal:defaultImage define="catalog python:context.portal_catalog;
+                          defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
+                          defaultImageString defaultImageObject/@@images/image/preview;
+                          defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
+
 <div class="nicdark_space50"></div>
 <div class="grid grid_8">
 
@@ -37,7 +42,8 @@
 <div>
   <i class="icon-right-open-outline"></i>
   <strong>報名期間：</strong>
-  <span tal:content="python:'%s ~ %s' %
+  <span tal:condition="exists:context/signUpFrom/strftime"
+        tal:content="python:'%s ~ %s' %
                      (context.signUpFrom.strftime('%Y/%m/%d'), context.signUpEnd.strftime('%Y/%m/%d'))"/>
 </div>
 <div class="nicdark_space15"></div>
@@ -45,7 +51,8 @@
 <div>
   <i class="icon-right-open-outline"></i>
   <strong>活動日期：</strong>
-  <span tal:content="python:context.happenDate.strftime('%Y/%m/%d')"/>
+  <span tal:condition="exists:context/happenDate/strftime"
+        tal:content="python:context.happenDate.strftime('%Y/%m/%d')"/>
 </div>
 <div class="nicdark_space15"></div>
 
@@ -56,7 +63,8 @@
   <strong>活動詳情：</strong>
   <div class="nicdark_space5"></div>
   <span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow" tal:content="python:context.title[0]">L</span>
-  <span tal:replace="structure context/text/raw"/>
+  <span tal:condition="exists:context/text/raw"
+        tal:replace="structure context/text/raw"/>
 </div>
 <div class="nicdark_space15"></div>
 
@@ -66,8 +74,8 @@
   <div class="nicdark_space5"></div>
 </div>
 <div class="nicdark_space5"></div>
-<tal:src tal:define="previewString context/@@images/bannerImage/preview;
-                     bannerString context/@@images/bannerImage/banner;
+<tal:src tal:define="previewString context/@@images/bannerImage/preview | defaultImageString;
+                     bannerString context/@@images/bannerImage/banner | defaultImageString;
                      previewSrc python:previewString.split('src=&quot;')[1].split('&quot;')[0];
                      bannerSrc python:bannerString.split('src=&quot;')[1].split('&quot;')[0]">
 <div class="nicdark_mpopup_gallery">
@@ -99,6 +107,8 @@
 
 
 </div>
+
+</tal:defaultImage>
 
   </metal:content-core>
 </metal:main>

@@ -25,8 +25,15 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.indexer import indexer
 from collective import dexteritytextindexer
 
+# repactcha
+from plone import api
+
 # i18n
 from reporter.content import MessageFactory as _
+
+
+class CaptchaError(Invalid):
+    __doc__ = _(u"Captcha error, plaease try again.")
 
 
 class ICompetition(form.Schema, IImageScaleTraversable):
@@ -91,9 +98,16 @@ class ICompetition(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    @invariant
+    def validateCaptcha(data):
+        portal = api.portal.get()
+        if "++add++reporter.content.competition" in str(portal.REQUEST):
+            if not portal.restrictedTraverse('@@captcha').verify():
+                raise CaptchaError(_(u"Captcha error, plaease try again."))
+
 
 class AddForm(DefaultAddForm):
-    template = ViewPageTemplateFile('template/addForm.pt')
+    template = ViewPageTemplateFile('template/addFormWithRecaptcha.pt')
 
 
 class AddView(DefaultAddView):

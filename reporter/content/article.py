@@ -112,8 +112,10 @@ class SampleView(grok.View):
 
     def getAuthor(self):
         catalog = self.context.portal_catalog
-        author = catalog(UID=self.context.author)[0]
-        return author
+        author = catalog(UID=self.context.author)
+        if len(author) > 0:
+            return author[0]
+        return None
 
 
 # create index and metadata
