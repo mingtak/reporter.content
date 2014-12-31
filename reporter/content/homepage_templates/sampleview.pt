@@ -164,8 +164,14 @@
 
 
 <!--end section--><!--start section-->
+<tal:background_1 define="catalog python:context.portal_catalog;
+                          brain python:catalog({'Type':'Image', 'id':'background_1'})[0];
+                          item brain/getObject;
+                          itemString item/@@images/image/large;
+                          itemSrc python:itemString.split('src=&quot;')[1].split('&quot;')[0]">
+
 <div id="nicdark_parallax_2_btns" class="nicdark_section nicdark_imgparallax"
-     style="background:url(/logo.png) 50% 0 fixed; background-size:cover;">
+     tal:attributes="style python:'background:url(%s) 50%% 0 fixed;; background-size:cover;;' % itemSrc">
     <div class="nicdark_filter greydark">
         <!--start nicdark_container-->
         <div class="nicdark_container nicdark_clearfix">
@@ -183,6 +189,7 @@
         <!--end nicdark_container-->
     </div>
 </div>
+</tal:background_1>
 <!--end section--><!--start section-->
 
 
@@ -209,10 +216,11 @@
             <!--archive1-->
             <div tal:attributes="class python:'nicdark_archive1 %s nicdark_radius nicdark_shadow' % nicdark_bg_color[repeat['competition'].index]">
                 <a tal:attributes="href brain/getURL" class="nicdark_btn nicdark_bg_greydark white medium nicdark_radius nicdark_absolute_left">
-                  <tal:date content="python:'%s/%s' % (brain.happenDate.month, brain.happenDate.day)" /><br/>
-                  <small tal:content="python:brain.happenDate.year">YEAR</small>
+                  <tal:date content="python:'%s/%s' %
+                           (getattr(brain.happenDate, 'month', ''), getattr(brain.happenDate, 'day', ''))" /><br/>
+                  <small tal:content="python:getattr(brain.happenDate, 'year', '')">YEAR</small>
                 </a>
-                <img tal:replace="structure item/@@images/image/preview">
+                <img tal:condition="exists:item/@@images/image/preview" tal:replace="structure item/@@images/image/preview">
                 <div class="nicdark_textevidence nicdark_bg_greydark">
                     <h4 class="white nicdark_margin20" tal:content="brain/Title">A DAY IN THE PARK</h4>
                 </div>
@@ -244,8 +252,13 @@
 
 
 <!--end section--><!--start section-->
+<tal:background_2 define="catalog python:context.portal_catalog;
+                          brain python:catalog({'Type':'Image', 'id':'background_2'})[0];
+                          item brain/getObject;
+                          itemString item/@@images/image/large;
+                          itemSrc python:itemString.split('src=&quot;')[1].split('&quot;')[0]">
 <section id="nicdark_parallax_countdown" class="nicdark_section nicdark_imgparallax"
-         style="background:url(http://upload.wikimedia.org/wikipedia/commons/7/70/Bratislava_New_Year_Fireworks.jpg) 50% 0 fixed; background-size:cover;">
+         tal:attributes="style string:background:url(${itemSrc}) 50% 0 fixed;; background-size:cover;;">
     <div class="nicdark_filter greydark">
         <!--start nicdark_container-->
         <div class="nicdark_container nicdark_clearfix">
@@ -266,6 +279,7 @@
         <!--end nicdark_container-->
     </div>
 </section>
+</tal:background_2>
 <!--end section--><!--start section-->
 
 <tal:customNewsSetupSetup define="customNewsSetup view/customNewsSetup;
@@ -484,7 +498,7 @@
         <div class="nicdark_space30"></div>
         <div class="grid grid_12">
             <div class="nicdark_textevidence center">
-                <a href="/articlt" class="nicdark_zoom nicdark_btn nicdark_bg_blue medium nicdark_shadow nicdark_radius white nicdark_margin10"><i class="icon-th-outline"></i>&nbsp;&nbsp;&nbsp;點看更多</a>
+                <a href="/article" class="nicdark_zoom nicdark_btn nicdark_bg_blue medium nicdark_shadow nicdark_radius white nicdark_margin10"><i class="icon-th-outline"></i>&nbsp;&nbsp;&nbsp;點看更多</a>
             </div>
         </div>
         <div class="nicdark_space40"></div>

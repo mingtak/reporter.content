@@ -18,15 +18,20 @@
 <tal:defaultImage define="catalog python:context.portal_catalog;
                           defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
                           defaultImageString defaultImageObject/@@images/image/preview;
-                          defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
-
+                          defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0];
+                          bannerSrcString context/@@images/image/banner;
+                          bannerSrc python:bannerSrcString.split('src=&quot;')[1].split('&quot;')[0]">
         <div class="nicdark_space50"></div>
         <div class="grid grid_8">
         <tal:getSrc define="srcString context/@@images/image/banner | defaultImageString;
                             src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
-            <img tal:attributes="alt context/Title;
-                                 src src"
-                 class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+            <div class="nicdark_mpopup_gallery">
+            <a tal:attributes="href bannerSrc; title context/Title">
+              <img tal:attributes="alt context/Title;
+                                   src src"
+                   class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+            </a>
+</div>
         </tal:getSrc>
             <div class="nicdark_space20"></div>
             <div class="nicdark_textevidence nicdark_bg_green nicdark_radius nicdark_shadow">
@@ -55,22 +60,30 @@
               <p><span class="white nicdark_dropcap nicdark_bg_orange nicdark_radius nicdark_shadow" tal:content="python:context.title[0]">L</span></p>
               <p tal:replace="structure context/text/raw" />
 </div>
-<div class="grid grid_3" tal:condition="python:not (context.newsImage_2 is None and context.newsImage_1 is None)">
+<div class="grid grid_3 nicdark_mpopup_gallery" tal:condition="python:not (context.newsImage_2 is None and context.newsImage_1 is None)">
         <tal:checkExists condition="exists:context/@@images/newsImage_1/size300">
           <tal:getSrc define="srcString context/@@images/newsImage_1/size300;
-                              src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
-              <img tal:attributes="alt context/Title;
-                                   src src"
-                   class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+                              src python:srcString.split('src=&quot;')[1].split('&quot;')[0];
+                              largeSrcString context/@@images/newsImage_1/large;
+                              largeSrc python:largeSrcString.split('src=&quot;')[1].split('&quot;')[0];">
+              <a tal:attributes="href largeSrc; title context/Title">
+                <img tal:attributes="alt context/Title;
+                                     src src"
+                     class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+              </a>
           </tal:getSrc>
         </tal:checkExists>
         <div class="nicdark_space20"></div>
         <tal:checkExists condition="exists:context/@@images/newsImage_2/size300">
           <tal:getSrc define="srcString context/@@images/newsImage_2/size300;
-                              src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
-              <img tal:attributes="alt context/Title;
-                                   src src"
-                   class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+                              src python:srcString.split('src=&quot;')[1].split('&quot;')[0];
+                              largeSrcString context/@@images/newsImage_2/large;
+                              largeSrc python:largeSrcString.split('src=&quot;')[1].split('&quot;')[0];">
+              <a tal:attributes="href largeSrc; title context/Title">
+                <img tal:attributes="alt context/Title;
+                                     src src"
+                     class="nicdark_radius nicdark_opacity" style="float:left;width:100%;">
+              </a>
           </tal:getSrc>
         </tal:checkExists>
 </div>

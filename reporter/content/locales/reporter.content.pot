@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-12-18 05:01+0000\n"
+"POT-Creation-Date: 2014-12-28 09:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: reporter.content\n"
 
-#: ./contentlist_templates/viewforarticle.pt:36
-#: ./homepage_templates/sampleview.pt:400
+#: ./contentlist_templates/viewforarticle.pt:40
+#: ./homepage_templates/sampleview.pt:433
 msgid "ALL GRADE ARTICELS"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:391
+#: ./homepage_templates/sampleview.pt:424
 msgid "ARTICLE"
 msgstr ""
 
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Article content type"
 msgstr ""
 
-#: ./eventinfo.py:35
+#: ./eventinfo.py:38
 msgid "Arts and Humanities"
 msgstr ""
 
@@ -52,15 +52,25 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: ./author.py:40
+#: ./author.py:43
 msgid "Author picture"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:393
+#: ./competition.py:51
+#: ./eventinfo.py:67
+msgid "Banner image"
+msgstr ""
+
+#: ./homepage_templates/sampleview.pt:426
 msgid "Best article"
 msgstr ""
 
-#: ./eventinfo.py:38
+#: ./competition.py:36
+#: ./eventinfo.py:52
+msgid "Captcha error, plaease try again."
+msgstr ""
+
+#: ./eventinfo.py:41
 msgid "Celebration"
 msgstr ""
 
@@ -72,11 +82,11 @@ msgstr ""
 msgid "Competition content type"
 msgstr ""
 
-#: ./competition.py:73
+#: ./competition.py:87
 msgid "Competition date"
 msgstr ""
 
-#: ./competition.py:52
+#: ./competition.py:66
 msgid "Competition place"
 msgstr ""
 
@@ -100,11 +110,11 @@ msgstr ""
 msgid "Define Author(student)"
 msgstr ""
 
-#: ./eventinfo.py:60
+#: ./eventinfo.py:74
 msgid "Event category"
 msgstr ""
 
-#: ./eventinfo.py:87
+#: ./eventinfo.py:101
 msgid "Event date"
 msgstr ""
 
@@ -116,16 +126,16 @@ msgstr ""
 msgid "EventInfo"
 msgstr ""
 
-#: ./eventinfo.py:39
+#: ./eventinfo.py:42
 msgid "Experience tour"
 msgstr ""
 
-#: ./contentlist_templates/viewforarticle.pt:45
-#: ./homepage_templates/sampleview.pt:409
+#: ./contentlist_templates/viewforarticle.pt:49
+#: ./homepage_templates/sampleview.pt:442
 msgid "Five/six grade"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:262
+#: ./homepage_templates/sampleview.pt:295
 msgid "Good news"
 msgstr ""
 
@@ -182,45 +192,45 @@ msgstr ""
 msgid "Image contribute"
 msgstr ""
 
-#: ./author.py:31
+#: ./author.py:34
 msgid "Keelung"
 msgstr ""
 
 #: ./article.py:66
-#: ./competition.py:37
+#: ./competition.py:44
 #: ./contentlist.py:35
 msgid "Lead image"
 msgstr ""
 
-#: ./eventinfo.py:37
+#: ./eventinfo.py:40
 msgid "Local"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:177
+#: ./homepage_templates/sampleview.pt:204
 msgid "NEWEST COMPETITIONS"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:104
+#: ./homepage_templates/sampleview.pt:124
 msgid "NEWEST EVENTS"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:260
+#: ./homepage_templates/sampleview.pt:293
 msgid "NEWS"
 msgstr ""
 
-#: ./eventinfo.py:36
+#: ./eventinfo.py:39
 msgid "Natural science"
 msgstr ""
 
-#: ./author.py:30
+#: ./author.py:33
 msgid "New Taipei"
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:179
+#: ./homepage_templates/sampleview.pt:206
 msgid "Newest cometitions in here."
 msgstr ""
 
-#: ./homepage_templates/sampleview.pt:106
+#: ./homepage_templates/sampleview.pt:126
 msgid "Newest events all in here"
 msgstr ""
 
@@ -236,22 +246,22 @@ msgstr ""
 msgid "News image 2"
 msgstr ""
 
-#: ./competition.py:44
-#: ./eventinfo.py:66
+#: ./competition.py:58
+#: ./eventinfo.py:80
 msgid "Notice URL"
 msgstr ""
 
-#: ./competition.py:81
-#: ./eventinfo.py:95
+#: ./competition.py:95
+#: ./eventinfo.py:109
 msgid "Notice content"
 msgstr ""
 
-#: ./contentlist_templates/viewforarticle.pt:39
-#: ./homepage_templates/sampleview.pt:403
+#: ./contentlist_templates/viewforarticle.pt:43
+#: ./homepage_templates/sampleview.pt:436
 msgid "One/two grade"
 msgstr ""
 
-#: ./eventinfo.py:40
+#: ./eventinfo.py:43
 msgid "Other categories"
 msgstr ""
 
@@ -263,27 +273,27 @@ msgstr ""
 msgid "Page Env setting control panel form"
 msgstr ""
 
-#: ./contentlist_templates/viewforarticle.pt:48
-#: ./homepage_templates/sampleview.pt:412
+#: ./contentlist_templates/viewforarticle.pt:52
+#: ./homepage_templates/sampleview.pt:445
 msgid "Seven to nine grade"
 msgstr ""
 
-#: ./competition.py:66
-#: ./eventinfo.py:80
+#: ./competition.py:80
+#: ./eventinfo.py:94
 msgid "Sign up end date"
 msgstr ""
 
-#: ./competition.py:59
-#: ./eventinfo.py:73
+#: ./competition.py:73
+#: ./eventinfo.py:87
 msgid "Sign up start date"
 msgstr ""
 
-#: ./author.py:29
+#: ./author.py:32
 msgid "Taipei"
 msgstr ""
 
-#: ./contentlist_templates/viewforarticle.pt:42
-#: ./homepage_templates/sampleview.pt:406
+#: ./contentlist_templates/viewforarticle.pt:46
+#: ./homepage_templates/sampleview.pt:439
 msgid "Three/four grade"
 msgstr ""
 
@@ -291,23 +301,33 @@ msgstr ""
 msgid "Top banner setting"
 msgstr ""
 
+#: ./article.py:52
+#: ./customnews.py:53
+msgid "help_author"
+msgstr ""
+
 #. Default: "Select a city where school is?"
-#: ./author.py:46
+#: ./author.py:49
 msgid "help_city"
 msgstr ""
 
 #. Default: "CompetitionDate date, if have."
-#: ./competition.py:74
+#: ./competition.py:88
 msgid "help_competitionDate"
 msgstr ""
 
+#. Default: "Please upload competition promotion image, if have."
+#: ./competition.py:52
+msgid "help_competition_bannerImage"
+msgstr ""
+
 #. Default: "Please upload competition image, if have."
-#: ./competition.py:38
+#: ./competition.py:45
 msgid "help_competition_image"
 msgstr ""
 
 #. Default: "Please input rough place, example:'Taipei city'."
-#: ./competition.py:53
+#: ./competition.py:67
 msgid "help_competition_place"
 msgstr ""
 
@@ -317,18 +337,22 @@ msgid "help_description"
 msgstr ""
 
 #. Default: "Event happen date, if have."
-#: ./eventinfo.py:88
+#: ./eventinfo.py:102
 msgid "help_eventinfo_Date"
 msgstr ""
 
-#. Default: "Please upload event image, if have."
-#: ./eventinfo.py:54
+#. Default: "Please upload event promotion image, if have."
+#: ./eventinfo.py:68
+msgid "help_eventinfo_bannerImage"
+msgstr ""
+
+#. Default: "Please upload event cover image, if have."
+#: ./eventinfo.py:61
 msgid "help_eventinfo_image"
 msgstr ""
 
-#. Default: "How grade at now? Please input author's grade(1-9)."
-#: ./article.py:58
-#: ./customnews.py:59
+#: ./article.py:59
+#: ./customnews.py:60
 msgid "help_grade"
 msgstr ""
 
@@ -346,31 +370,31 @@ msgid "help_imageContribute"
 msgstr ""
 
 #. Default: "We will comfirm this notice, then publish it, and we will have to modify the text."
-#: ./competition.py:82
-#: ./eventinfo.py:96
+#: ./competition.py:96
+#: ./eventinfo.py:110
 msgid "help_notice_text"
 msgstr ""
 
 #. Default: "Please upload notice url."
-#: ./competition.py:45
-#: ./eventinfo.py:67
+#: ./competition.py:59
+#: ./eventinfo.py:81
 msgid "help_notice_url"
 msgstr ""
 
 #. Default: "Please input your school name."
-#: ./author.py:54
+#: ./author.py:57
 msgid "help_schoolname"
 msgstr ""
 
 #. Default: "Sign up end date, if have."
-#: ./competition.py:67
-#: ./eventinfo.py:81
+#: ./competition.py:81
+#: ./eventinfo.py:95
 msgid "help_signUPEnd"
 msgstr ""
 
 #. Default: "Sign up from date, if have."
-#: ./competition.py:60
-#: ./eventinfo.py:74
+#: ./competition.py:74
+#: ./eventinfo.py:88
 msgid "help_signUPFrom"
 msgstr ""
 
@@ -380,7 +404,7 @@ msgid "help_title"
 msgstr ""
 
 #. Default: "City"
-#: ./author.py:45
+#: ./author.py:48
 msgid "label_city"
 msgstr ""
 
@@ -390,13 +414,13 @@ msgid "label_description"
 msgstr ""
 
 #. Default: "input author's grade."
-#: ./article.py:57
-#: ./customnews.py:58
+#: ./article.py:58
+#: ./customnews.py:59
 msgid "label_grade"
 msgstr ""
 
 #. Default: "input your school name."
-#: ./author.py:53
+#: ./author.py:56
 msgid "label_schoolname"
 msgstr ""
 

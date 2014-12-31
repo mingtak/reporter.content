@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-12-18 05:01+0000\n"
+"POT-Creation-Date: 2014-12-28 09:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./contentlist_templates/viewforarticle.pt:36
-#: ./homepage_templates/sampleview.pt:400
+#: ./contentlist_templates/viewforarticle.pt:40
+#: ./homepage_templates/sampleview.pt:433
 msgid "ALL GRADE ARTICELS"
 msgstr "全部作文"
 
-#: ./homepage_templates/sampleview.pt:391
+#: ./homepage_templates/sampleview.pt:424
 msgid "ARTICLE"
 msgstr "作文"
 
@@ -39,7 +39,7 @@ msgstr "作文全文"
 msgid "Article content type"
 msgstr "作文發表"
 
-#: ./eventinfo.py:35
+#: ./eventinfo.py:38
 msgid "Arts and Humanities"
 msgstr "人文藝術"
 
@@ -49,15 +49,25 @@ msgstr "人文藝術"
 msgid "Author"
 msgstr "作者"
 
-#: ./author.py:40
+#: ./author.py:43
 msgid "Author picture"
 msgstr "小作家 / 記者圖片"
 
-#: ./homepage_templates/sampleview.pt:393
+#: ./competition.py:51
+#: ./eventinfo.py:67
+msgid "Banner image"
+msgstr "請上傳宣傳海報，尺寸不限"
+
+#: ./homepage_templates/sampleview.pt:426
 msgid "Best article"
 msgstr "精選作文"
 
-#: ./eventinfo.py:38
+#: ./competition.py:36
+#: ./eventinfo.py:52
+msgid "Captcha error, plaease try again."
+msgstr "驗證碼錯誤，請重新輸入"
+
+#: ./eventinfo.py:41
 msgid "Celebration"
 msgstr "觀樂慶典"
 
@@ -69,11 +79,11 @@ msgstr "競賽活動"
 msgid "Competition content type"
 msgstr "競賽活動"
 
-#: ./competition.py:73
+#: ./competition.py:87
 msgid "Competition date"
 msgstr "競賽日期"
 
-#: ./competition.py:52
+#: ./competition.py:66
 msgid "Competition place"
 msgstr "競賽地點"
 
@@ -97,11 +107,11 @@ msgstr "新聞發佈"
 msgid "Define Author(student)"
 msgstr "設定小作家/小記者"
 
-#: ./eventinfo.py:60
+#: ./eventinfo.py:74
 msgid "Event category"
 msgstr "活動分類"
 
-#: ./eventinfo.py:87
+#: ./eventinfo.py:101
 msgid "Event date"
 msgstr "活動日期"
 
@@ -113,16 +123,16 @@ msgstr "活動訊息"
 msgid "EventInfo"
 msgstr "張貼活動"
 
-#: ./eventinfo.py:39
+#: ./eventinfo.py:42
 msgid "Experience tour"
 msgstr "體驗活動"
 
-#: ./contentlist_templates/viewforarticle.pt:45
-#: ./homepage_templates/sampleview.pt:409
+#: ./contentlist_templates/viewforarticle.pt:49
+#: ./homepage_templates/sampleview.pt:442
 msgid "Five/six grade"
 msgstr "高年級"
 
-#: ./homepage_templates/sampleview.pt:262
+#: ./homepage_templates/sampleview.pt:295
 msgid "Good news"
 msgstr "好新聞"
 
@@ -179,45 +189,45 @@ msgstr "熱門標籤"
 msgid "Image contribute"
 msgstr "是否投稿封面圖片"
 
-#: ./author.py:31
+#: ./author.py:34
 msgid "Keelung"
 msgstr "基隆市"
 
 #: ./article.py:66
-#: ./competition.py:37
+#: ./competition.py:44
 #: ./contentlist.py:35
 msgid "Lead image"
 msgstr "封面圖片"
 
-#: ./eventinfo.py:37
+#: ./eventinfo.py:40
 msgid "Local"
 msgstr "在地鄉土"
 
-#: ./homepage_templates/sampleview.pt:177
+#: ./homepage_templates/sampleview.pt:204
 msgid "NEWEST COMPETITIONS"
 msgstr "最新賽事"
 
-#: ./homepage_templates/sampleview.pt:104
+#: ./homepage_templates/sampleview.pt:124
 msgid "NEWEST EVENTS"
 msgstr "最新活動訊息"
 
-#: ./homepage_templates/sampleview.pt:260
+#: ./homepage_templates/sampleview.pt:293
 msgid "NEWS"
 msgstr "新聞"
 
-#: ./eventinfo.py:36
+#: ./eventinfo.py:39
 msgid "Natural science"
 msgstr "自然科學"
 
-#: ./author.py:30
+#: ./author.py:33
 msgid "New Taipei"
 msgstr "新北市"
 
-#: ./homepage_templates/sampleview.pt:179
+#: ./homepage_templates/sampleview.pt:206
 msgid "Newest cometitions in here."
 msgstr "最新競賽公佈欄"
 
-#: ./homepage_templates/sampleview.pt:106
+#: ./homepage_templates/sampleview.pt:126
 msgid "Newest events all in here"
 msgstr "最新活動訊息公佈欄"
 
@@ -233,22 +243,22 @@ msgstr "新聞圖片1"
 msgid "News image 2"
 msgstr "新聞圖片2"
 
-#: ./competition.py:44
-#: ./eventinfo.py:66
+#: ./competition.py:58
+#: ./eventinfo.py:80
 msgid "Notice URL"
 msgstr "活動網址"
 
-#: ./competition.py:81
-#: ./eventinfo.py:95
+#: ./competition.py:95
+#: ./eventinfo.py:109
 msgid "Notice content"
 msgstr "公告內容"
 
-#: ./contentlist_templates/viewforarticle.pt:39
-#: ./homepage_templates/sampleview.pt:403
+#: ./contentlist_templates/viewforarticle.pt:43
+#: ./homepage_templates/sampleview.pt:436
 msgid "One/two grade"
 msgstr "低年級"
 
-#: ./eventinfo.py:40
+#: ./eventinfo.py:43
 msgid "Other categories"
 msgstr "其它分類"
 
@@ -260,27 +270,27 @@ msgstr "頁面環境設定"
 msgid "Page Env setting control panel form"
 msgstr "頁面環境設定面板"
 
-#: ./contentlist_templates/viewforarticle.pt:48
-#: ./homepage_templates/sampleview.pt:412
+#: ./contentlist_templates/viewforarticle.pt:52
+#: ./homepage_templates/sampleview.pt:445
 msgid "Seven to nine grade"
 msgstr "國中生"
 
-#: ./competition.py:66
-#: ./eventinfo.py:80
+#: ./competition.py:80
+#: ./eventinfo.py:94
 msgid "Sign up end date"
 msgstr "截止報名日"
 
-#: ./competition.py:59
-#: ./eventinfo.py:73
+#: ./competition.py:73
+#: ./eventinfo.py:87
 msgid "Sign up start date"
 msgstr "開始報名日"
 
-#: ./author.py:29
+#: ./author.py:32
 msgid "Taipei"
 msgstr "台北市"
 
-#: ./contentlist_templates/viewforarticle.pt:42
-#: ./homepage_templates/sampleview.pt:406
+#: ./contentlist_templates/viewforarticle.pt:46
+#: ./homepage_templates/sampleview.pt:439
 msgid "Three/four grade"
 msgstr "中年級"
 
@@ -288,48 +298,61 @@ msgstr "中年級"
 msgid "Top banner setting"
 msgstr "內頁橫幅設定"
 
+#: ./article.py:52
+#: ./customnews.py:53
+msgid "help_author"
+msgstr "請選擇本篇作者/記者，如果還沒有設定，<br />請先<a href='/Members/++add++reporter.content.author' target='_blank'>點這裏新增作者/記者</a>"
+
 #. Default: "Select a city where school is?"
-#: ./author.py:46
+#: ./author.py:49
 msgid "help_city"
 msgstr "請選擇 小作家/小記者 所在縣市"
 
 #. Default: "CompetitionDate date, if have."
-#: ./competition.py:74
+#: ./competition.py:88
 msgid "help_competitionDate"
 msgstr "若為現場競賽(如圍期比賽)，請輸入競賽日期(或競賽首日)；若為收件式競賽(如作文投稿)，本欄不填。"
 
+#. Default: "Please upload competition promotion image, if have."
+#: ./competition.py:52
+msgid "help_competition_bannerImage"
+msgstr ""
+
 #. Default: "Please upload competition image, if have."
-#: ./competition.py:38
+#: ./competition.py:45
 msgid "help_competition_image"
 msgstr "若有競賽宣傳圖檔，請上傳"
 
 #. Default: "Please input rough place, example:'Taipei city'."
-#: ./competition.py:53
+#: ./competition.py:67
 msgid "help_competition_place"
 msgstr "請輸入大略位置，例如 '台北市' / '南港' / '自由廣場'... 均可"
 
 #. Default: "Used in item listings and search results, max length is 200."
 #: ./basic.py:28
-#, fuzzy
 msgid "help_description"
 msgstr "請輸入200字以內的 小作家/小記者 個人簡介"
 
 #. Default: "Event happen date, if have."
-#: ./eventinfo.py:88
+#: ./eventinfo.py:102
 msgid "help_eventinfo_Date"
 msgstr "若為現場活動(如親子路跑)，請輸入活動日期(或活動首日)；若無明確活動日期(如桐花季)，本欄不填。"
 
-#. Default: "Please upload event image, if have."
-#: ./eventinfo.py:54
+#. Default: "Please upload event promotion image, if have."
+#: ./eventinfo.py:68
+msgid "help_eventinfo_bannerImage"
+msgstr "請上傳活動宣傳海報"
+
+#. Default: "Please upload event cover image, if have."
+#: ./eventinfo.py:61
 msgid "help_eventinfo_image"
-msgstr "若有活動宣傳圖檔，請上傳"
+msgstr "請上傳活動橫幅宣傳用圖檔，若有則會顯示在頁面最上方"
 
 #. Default: "How grade at now? Please input author's grade(1-9)."
-#: ./article.py:58
-#: ./customnews.py:59
-#, fuzzy
+#: ./article.py:59
+#: ./customnews.py:60
 msgid "help_grade"
-msgstr "請輸入年級，國小:1-6，國中：7-9"
+msgstr "請輸入寫作當時的年級，國小:1-6，國中：7-9"
 
 #. Default: "Please upload lead image, this image will show in cover."
 #: ./article.py:67
@@ -345,31 +368,31 @@ msgid "help_imageContribute"
 msgstr "若要同時投稿封面照片，請打勾，如獲選用，我們會放在網站首頁唷！"
 
 #. Default: "We will comfirm this notice, then publish it, and we will have to modify the text."
-#: ./competition.py:82
-#: ./eventinfo.py:96
+#: ./competition.py:96
+#: ./eventinfo.py:110
 msgid "help_notice_text"
 msgstr "為避免重覆張貼，我們會在確認後立即發佈本活動訊息"
 
 #. Default: "Please upload notice url."
-#: ./competition.py:45
-#: ./eventinfo.py:67
+#: ./competition.py:59
+#: ./eventinfo.py:81
 msgid "help_notice_url"
 msgstr "請輸入公告網址(需包含 'http://' 或 'https://')"
 
 #. Default: "Please input your school name."
-#: ./author.py:54
+#: ./author.py:57
 msgid "help_schoolname"
 msgstr "請輸入校名"
 
 #. Default: "Sign up end date, if have."
-#: ./competition.py:67
-#: ./eventinfo.py:81
+#: ./competition.py:81
+#: ./eventinfo.py:95
 msgid "help_signUPEnd"
 msgstr "如有報名期限，請輸入報名截止日期"
 
 #. Default: "Sign up from date, if have."
-#: ./competition.py:60
-#: ./eventinfo.py:74
+#: ./competition.py:74
+#: ./eventinfo.py:88
 msgid "help_signUPFrom"
 msgstr "如有報名期限，請輸入報名開始日期(如為即日起開放報名，則免填)"
 
@@ -379,7 +402,7 @@ msgid "help_title"
 msgstr "請輸入 小作家/小記者 姓名(當然也可以是 筆名/藝名/暱稱/綽號…)"
 
 #. Default: "City"
-#: ./author.py:45
+#: ./author.py:48
 msgid "label_city"
 msgstr "所在縣市"
 
@@ -389,13 +412,13 @@ msgid "label_description"
 msgstr "簡介"
 
 #. Default: "input author's grade."
-#: ./article.py:57
-#: ./customnews.py:58
+#: ./article.py:58
+#: ./customnews.py:59
 msgid "label_grade"
 msgstr "年級"
 
 #. Default: "input your school name."
-#: ./author.py:53
+#: ./author.py:56
 msgid "label_schoolname"
 msgstr "校名"
 

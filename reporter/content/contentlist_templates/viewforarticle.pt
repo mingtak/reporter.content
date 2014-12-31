@@ -19,7 +19,9 @@
 
 <tal:articleSetup define="catalog python:context.portal_catalog;
                           start python:int(getattr(request, 's', '0'));
-                          totalBrains python:catalog({'Type':'Article'}, sort_on='created', sort_order='reverse');
+                          k python:getattr(request, 'k', '');
+                          gradeList python:[1,2] if k=='12' else [3,4] if k=='34' else [5,6] if k=='56' else [7,8,9] if k=='789' else [1,2,3,4,5,6,7,8,9];
+                          totalBrains python:catalog({'Type':'Article', 'grade':gradeList}, sort_on='created', sort_order='reverse');
                           totalCount python:len(totalBrains);
                           brains python:totalBrains[start:start+20];
                           nicdark_bg_color python:['nicdark_bg_blue', 'nicdark_bg_yellow', 'nicdark_bg_orange',
@@ -29,7 +31,6 @@
                           defaultImageObject python:catalog(id='default_640_480.png')[0].getObject();
                           defaultImageString defaultImageObject/@@images/image/preview;
                           defaultImageSrc python:defaultImageString.split('src=&quot;')[1].split('&quot;')[0]">
-
 <section class="nicdark_section">
     <!--start nicdark_container-->
     <div class="nicdark_container nicdark_clearfix">
@@ -97,12 +98,12 @@
     <div class="nicdark_container nicdark_clearfix">
         <div class="nicdark_space40"></div>
         <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
-            <a tal:attributes="href python:'/article?s=%s' % (0 if start-20 < 0 else start-20)"
+            <a tal:attributes="href python:'/article?s=%s&k=%s' % ((0 if start-20 < 0 else start-20), k)"
                tal:condition="python:start > 0"
                class="nicdark_disable_floatright_iphoneland nicdark_disable_floatright_iphonepotr nicdark_btn nicdark_bg_green medium right nicdark_shadow nicdark_radius white nicdark_press"><i class="icon-left-open-outline"></i>&nbsp;&nbsp;&nbsp;上一頁</a>
         </div>
         <div class="grid grid_6 nicdark_aligncenter_iphoneland nicdark_aligncenter_iphonepotr">
-            <a tal:attributes="href python:'/article?s=%s' % (start+20)"
+            <a tal:attributes="href python:'/article?s=%s&k=%s' % ((start+20), k)"
                tal:condition="python:start < totalCount"
                class=" nicdark_btn nicdark_bg_green medium nicdark_shadow nicdark_radius white nicdark_press">下一頁&nbsp;&nbsp;&nbsp;<i class="icon-right-open-outline"></i></a>
         </div>

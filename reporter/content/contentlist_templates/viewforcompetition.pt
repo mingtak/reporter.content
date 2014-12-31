@@ -41,7 +41,7 @@
             <div class="grid grid_4 nicdark_masonry_item">
                 <div tal:attributes="class python:'nicdark_archive1 nicdark_radius nicdark_shadow %s' % nicdark_bg_color[repeat['brain'].index % 6]">
                     <a tal:attributes="href brain/getURL;
-                                       class python:'nicdark_zoom nicdark_btn_icon %s nicdark_border_%sdark white medium nicdark_radius_circle nicdark_absolute_left' %
+                                       class python:'nicdark_zoom nicdark_btn_icon %s nicdark_border_%sdark white medium nicdark_radius_circle nicdark_absolute_right' %
                                                      (nicdark_bg_color[repeat['brain'].index % 6], nicdark_bg_color[repeat['brain'].index % 6].split('_')[-1])">
                       <i class="icon-link-outline"></i>
                     </a>

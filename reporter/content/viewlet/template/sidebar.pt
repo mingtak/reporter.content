@@ -48,6 +48,47 @@
     </div>
     <!--end CART-->
 
+
+
+
+<section class="nicdark_section nicdark_margintop20_negative">
+    <!--start nicdark_container-->
+    <div class="nicdark_container nicdark_clearfix">
+                <div class="grid grid_3 percentage nomargin">
+                        <div class="nicdark_textevidence center">
+
+<tal:role define="isAnonymous python:request['AUTHENTICATED_USER'].has_role('Anonymous');
+                  popup python:'nicdark_mpopup_ajax' if isAnonymous else ''">
+<div class="nicdark_margin100">
+    <a tal:attributes="href python:'/loginForm' if isAnonymous else '/article/++add++reporter.content.article';
+                       class python:'medium nicdark_shadow nicdark_radius white nicdark_zoom nicdark_btn nicdark_bg_yellow %s' % popup">
+       <i class="icon-pencil">
+       </i>&nbsp;作文發表</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<div class="nicdark_margin100">
+    <a tal:attributes="href python:'/loginForm' if isAnonymous else '/news/++add++reporter.content.customnews';
+                       class python:'medium nicdark_shadow nicdark_radius white nicdark_zoom nicdark_btn nicdark_bg_green %s' % popup">
+       <i class="icon-pencil">
+       </i>&nbsp;新聞發表</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+</tal:role>
+
+<div class="nicdark_margin100">
+    <a href="/event/++add++reporter.content.eventinfo" 
+       class="nicdark_zoom nicdark_btn nicdark_bg_blue
+              medium nicdark_shadow nicdark_radius white"><i class="icon-pencil">
+       </i>&nbsp;張貼活動</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<div class="nicdark_margin100">
+    <a href="/competition/++add++reporter.content.competition"
+       class="nicdark_zoom nicdark_btn nicdark_bg_violet
+              medium nicdark_shadow nicdark_radius white"><i class="icon-pencil">
+       </i>&nbsp;張貼競賽</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+</div></div></div></section>
+
+
+
 <br>
     <!--start SEARCH-->
     <div class="nicdark_margin020">

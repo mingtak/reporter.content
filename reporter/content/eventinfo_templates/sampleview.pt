@@ -48,7 +48,8 @@
 <div>
   <i class="icon-right-open-outline"></i>
   <strong>報名期間：</strong>
-  <span tal:condition="exists:context/signUpFrom/strftime"
+  <span tal:condition="exists:context/signUpFrom/strftime;
+                       exists:context/signUpEnd/strftime"
         tal:content="python:'%s ~ %s' %
                      (context.signUpFrom.strftime('%Y/%m/%d'), context.signUpEnd.strftime('%Y/%m/%d'))"/>
 </div>

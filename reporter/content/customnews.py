@@ -50,6 +50,7 @@ class ICustomNews(form.Schema, IImageScaleTraversable, INewsItem):
     """
     author = schema.Choice(
         title=_(u"Author"),
+        description=_(u'help_author'),
         source=availableAuthor,
         required=False,
     )
