@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twgov.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+<!--start section-->
+
+<section class="nicdark_section">
+
+    <!--start nicdark_container-->
+  <div class="nicdark_container nicdark_clearfix">
+    <div class="nicdark_space50"></div>
+    <div class="nicdark_space50"></div>
+
+    <div class="grid grid_8">
+      <h3 tal:content="python:'這是您的創作列表' if len(view.brain) > 0 else '您目前尚無作品'"></h3>
+      <div class="nicdark_space30"></div>
+      <ul class="nicdark_list nicdark_relative">
+        <tal:repeat repeat="item view/brain">
+          <li tal:define="catalog python:context.portal_catalog;
+                          brain python:catalog(UID=item.authorUID);
+                          authorName python:'不具名' if len(brain) == 0 else brain[0].Title">
+            <i class="icon-check-1 green"></i>
+            <a tal:attributes="href item/getURL; title item/Description" tal:content="item/Title" />
+            <span tal:replace="python:u' -- (新聞: ' if item.Type == 'CustomNews' else u'-- (作文: '" />
+            <span tal:replace="python:'於 %s 由 %s 發表)' %
+                               (item.created.strftime('%Y/%m/%d'), authorName)" />
+            <i class="icon-pencil yellow" style="float:right"></i>
+            <a tal:attributes="href string:${item/getURL}/edit" title='編輯內容' style="float:right"> 點此編輯</a>
+            <div class="nicdark_space15"></div>
+          </li>
+        </tal:repeat>
+      </ul>
+      <div class="nicdark_space50"></div>
+    </div>
+  </div>
+</section>
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
