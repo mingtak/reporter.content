@@ -38,7 +38,9 @@
                     <p class="white"><i class="icon-calendar-1 nicdark_marginright10"></i>
                       <span tal:replace="python:context.created().strftime('%Y/%m/%d')">21 DECEMBER</span> <span class="nicdark_margin010">·</span> <i class="icon-user-1 nicdark_marginright10"></i>
                       <span tal:replace="python:'作者不具名' if view.getAuthor() is None else view.getAuthor().Title">ADMIN</span> <span class="nicdark_margin010">·</span> <i class="icon-chat nicdark_marginright10"></i>
+                      <span tal:replace="python:'' if view.getAuthor() is None else view.getAuthor().city" i18n:translate="">City</span>
                       <span tal:replace="python:'校名不顯示' if view.getAuthor() is None else view.getAuthor().schoolName">school name</span>
+                      <span tal:replace="python:'' if context.grade is None else '%d 年級' % context.grade">Grade</span>
                     </p>
                 </div>
                 <i class="icon-info-outline nicdark_iconbg right medium orange"></i>
@@ -49,30 +51,41 @@
             <div class="nicdark_divider left small"><span class="nicdark_bg_yellow nicdark_radius"></span></div>
             <div class="nicdark_space20"></div>
             <div>
-              <p><span class="white nicdark_dropcap nicdark_bg_yellow nicdark_radius nicdark_shadow" tal:content="python:context.title[0]">L</span></p>
-              <p tal:replace="structure context/text/raw" />
+              <p><span class="white nicdark_dropcap nicdark_bg_blue nicdark_radius nicdark_shadow" tal:content="python:context.text[0]">L</span></p>
+              <p tal:replace="structure python:view.getText()" />
             </div>
             <div class="nicdark_space50"></div>
             <!--author-->
             <div class="nicdark_archive1 nicdark_bg_yellow nicdark_radius nicdark_shadow">
                 <div class="nicdark_margin20 nicdark_relative">
 <tal:getSrc define="author python:None if view.getAuthor() is None else view.getAuthor().getObject();
-                    srcString author/@@images/image/mini | defaultImageString;
+                    srcString author/@@images/image/size100 | defaultImageString;
                     src python:srcString.split('src=&quot;')[1].split('&quot;')[0]">
                     <img tal:attributes="alt author/Title | string:不具名;
                                          src src"
-                     class="nicdark_displaynone_ipadpotr nicdark_radius_circle nicdark_absolute" style="width:100px;">
+                     class="nicdark_displaynone_ipadpotr nicdark_radius_circle nicdark_absolute" style="wight:auto; height:auto">
 </tal:getSrc>
-                    <div class="nicdark_activity nicdark_marginleft120 nicdark_disable_marginleft_ipadpotr">
+                    <div class="nicdark_activity nicdark_marginleft120 nicdark_disable_marginleft_ipadpotr" style="float:right">
                         <h4 class="white" tal:content="python:'不具名' if view.getAuthor() is None else view.getAuthor().Title">JOHN MCALISTER</h4>
                         <div class="nicdark_space20"></div>
                             <div class="nicdark_divider left small"><span class="nicdark_bg_white nicdark_radius"></span></div>
                         <div class="nicdark_space20"></div>
                         <p class="white" tal:content="python:'尚未設定' if view.getAuthor() is None else view.getAuthor().Description">Lorem commodo lectus at sollicitudin elementum. Sed dolor turpis, condimentum sit amet maximus sit amet, rhoncus non turpis. Aenean convallis ac lorem et sodales.</p>
+
+<div class="nicdark_space15"></div>
+        <p class="orange">感謝閱讀，喜歡我的文章嗎？請留下評語，讓我更進步！</p>
                     </div>
                 </div>
+<i class="icon-quote-right nicdark_iconbg right medium yellow"></i>
             </div>
+<div class="nicdark_focus">
+    <div class="nicdark_triangle yellow nicdark_marginleft120"></div>
+</div>
+<div class="nicdark_space30"></div>
+
             <!--author-->
+
+
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
